@@ -68,10 +68,10 @@
             </div>
             <ul class="main-menu">
                 <li>
-                    <a href="">Home</a>
+                    <a href="{{ route('index_main') }}">Home</a>
                 </li>
                 <li>
-                    <a href="">Nosotros</a>
+                    <a href="{{ route('web_about') }}">Nosotros</a>
                 </li>
                 <li>
                     <a href="">Productos <i class="fa-regular fa-angle-down"></i></a>
