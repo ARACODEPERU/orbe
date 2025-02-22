@@ -26,14 +26,11 @@ use Illuminate\Support\Facades\Mail;
 use Modules\Blog\Http\Controllers\BlogController;
 use Modules\Sales\Http\Controllers\SalesController;
 
-Route::get('/', [LandingController::class, 'index'])->name('index_main');
-Route::get('/facturador', [LandingController::class, 'biller'])->name('biller_main');
-Route::get('/news', [LandingController::class, 'blog'])->name('blog_main');
-Route::get('/terms', [LandingController::class, 'terms'])->name('terms_main');
-Route::get('/computer/store', [LandingController::class, 'computerStore'])->name('index_computer_store');
-Route::get('/prices/academic', [LandingController::class, 'academicPrices'])->name('academic_prices');
-Route::get('/curso-descripcion/{id}', [WebPageController::class, 'cursodescripcion'])->name('web_curso_descripcion');
 
+// Rutas en Blade
+// Route::get('/', [WebPageController::class, 'construction'])->name('construction');
+Route::get('/', [WebPageController::class, 'index'])->name('index_main');
+Route::get('/home', [WebPageController::class, 'index'])->name('index_main');
 //////mensajes de whatsapp///////
 Route::get('/ask/product/{id}', [LandingController::class, 'redirectToWhatsApp'])->name('whatsapp_send');
 
