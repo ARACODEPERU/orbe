@@ -334,6 +334,11 @@ class WebPageController extends Controller
         ]);
     }
 
+    public function contact()
+    {
+        return view('pages.contact');
+    }
+
     public function contacto()
     {
         $banner = CmsSection::where('component_id', 'nosotros_banner_area_11')  //siempre cambiar el id del componente

@@ -99,10 +99,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="">Contactanos</a>
+                    <a href="{{ route('web_contact') }}">Contactanos</a>
                 </li>
             </ul>
-            <div class="shipping__item d-none d-sm-flex align-items-center">
+            {{-- <div class="shipping__item d-none d-sm-flex align-items-center">
                 <div class="menu__right d-flex align-items-center">
                     <div class="thumb">
                         <img src="themes/webpage/assets/images/flag/picking.png" alt="image">
@@ -139,7 +139,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </header>

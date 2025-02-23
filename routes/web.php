@@ -32,6 +32,8 @@ use Modules\Sales\Http\Controllers\SalesController;
 Route::get('/', [WebPageController::class, 'index'])->name('index_main');
 Route::get('/home', [WebPageController::class, 'index'])->name('index_main');
 Route::get('/nosotros', [WebPageController::class, 'about'])->name('web_about');
+Route::get('/contacto', [WebPageController::class, 'contact'])->name('web_contact');
+
 //////mensajes de whatsapp///////
 Route::get('/ask/product/{id}', [LandingController::class, 'redirectToWhatsApp'])->name('whatsapp_send');
 
