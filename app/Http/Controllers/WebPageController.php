@@ -56,7 +56,6 @@ class WebPageController extends Controller
         return view('pages.about');
     }
 
-
     public function nosotros()
     {
 
@@ -96,6 +95,11 @@ class WebPageController extends Controller
             'visions' => $visions,
             'lider' => $lider
         ]);
+    }
+    
+    public function products()
+    {
+        return view('pages.products');
     }
 
     public function cursos()
