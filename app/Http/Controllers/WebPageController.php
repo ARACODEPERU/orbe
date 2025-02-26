@@ -372,10 +372,9 @@ class WebPageController extends Controller
         ]);
     }
 
-    public function carrito()
+    public function cart()
     {
-
-        return view('pages.carrito');
+        return view('pages.cart');
     }
 
     public function pagar(Request $request)
