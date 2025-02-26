@@ -37,6 +37,7 @@ Route::get('/contacto', [WebPageController::class, 'contact'])->name('web_contac
 // Tienda en Linea
 Route::get('/productos', [WebPageController::class, 'products'])->name('web_products');
 Route::get('/carrito', [WebPageController::class, 'cart'])->name('web_cart');
+Route::get('/pagar', [WebPageController::class, 'pay'])->name('web_pay');
 
 //////mensajes de whatsapp///////
 Route::get('/ask/product/{id}', [LandingController::class, 'redirectToWhatsApp'])->name('whatsapp_send');
