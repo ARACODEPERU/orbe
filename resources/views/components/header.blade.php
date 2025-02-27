@@ -2,36 +2,24 @@
 <div class="top__header pt-30 pb-30">
     <div class="container">
         <div class="top__wrapper">
-            <a href="index.html" class="main__logo">
-                <img src="themes/webpage/assets/images/logo/logo.svg" alt="logo__image">
+            <a href="{{ route('index_main') }}" class="main__logo">
+                <img src="{{ asset('themes/webpage/assets/images/logo/logo.svg') }}" alt="logo__image">
             </a>
             <div class="search__wrp">
                 <input placeholder="Search for" aria-label="Search">
                 <button><i class="fa-solid fa-search"></i></button>
             </div>
             <div class="account__wrap">
-                <div class="account d-flex align-items-center">
-                    <div class="user__icon">
-                        <a href="#0">
-                            <i class="fa-regular fa-user"></i>
-                        </a>
-                    </div>
-                    <a href="#0" class="acc__cont">
-                        <span>
-                            My Account
-                        </span>
-                    </a>
-                </div>
                 <div class="cart d-flex align-items-center">
                     <span class="cart__icon">
-                        <i class="fa-regular fa-cart-shopping"></i>
+                        <i class="fa-regular fa-cart-shopping" style="font-size: 18px;"></i>
                     </span>
                     <a href="#0" class="c__one">
                         <span>
                             $0.00
                         </span>
                     </a>
-                    <span class="one">
+                    <span class="one"  style="background: #1397e1; color: #fff;">
                         0
                     </span>
                 </div>

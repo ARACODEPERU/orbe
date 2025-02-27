@@ -97,9 +97,19 @@ class WebPageController extends Controller
         ]);
     }
     
+    public function categories()
+    {
+        return view('pages.categories');
+    }
+    
     public function products()
     {
         return view('pages.products');
+    }
+    
+    public function prodescription()
+    {
+        return view('pages.product-description');
     }
 
     public function cursos()

@@ -28,7 +28,7 @@
             <div class="col-xxl-3 col-xl-4 col-md-6">
                 <div class="product__item bor">
                     <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="shop-single.html" class="product__image pt-20 d-block">
+                    <a href="{{ route('web_pro_description') }}" class="product__image pt-20 d-block">
                         <img class="font-image" src="themes/webpage/assets/images/product/product-image1.png"
                             alt="image">
                         <img class="back-image" src="themes/webpage/assets/images/product/product-image3.png"
@@ -36,7 +36,7 @@
                     </a>
                     <div class="product__content">
                         <h4 class="mb-15">
-                            <a class="primary-hover" href="shop-single.html">
+                            <a class="primary-hover" href="{{ route('web_pro_description') }}">
                                 Nombre del Producto
                             </a>
                         </h4>
@@ -260,7 +260,7 @@
         <div class="row g-4">
             <div class="col-md-4"></div>
             <div class="col-md-4" style="text-align:center;">
-                <a href="" class="btn-one" data-animation="fadeInUp" data-delay="1.8s">
+                <a href="{{ route('web_categories') }}" class="btn-one" data-animation="fadeInUp" data-delay="1.8s">
                     <span>Todos los productos</span>
                 </a>
             </div>

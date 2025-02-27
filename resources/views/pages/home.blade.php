@@ -167,7 +167,7 @@
     <!-- Product area end here -->
 
     <!-- Discount area start here -->
-    <section class="discount-area bg-image" data-background="themes/webpage/assets/images/bg/discount-bg2.jpg">
+    <section class="discount-area bg-image" data-background="{{ asset('themes/webpage/assets/images/bg/discount-bg2.jpg') }}">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
