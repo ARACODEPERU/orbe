@@ -13,13 +13,14 @@
         </div>
         <div class="swiper banner-two__slider">
             <div class="swiper-wrapper">
-                @foreach ($sliders as $key => $slide)
+                @foreach ($sliders as $slide)
+                {{ dd($sliders) }}
                 <div class="swiper-slide">
-                    <div class="slide-bg" data-background="{{ $slide->item[0]->content }}"></div>
+                    <div class="slide-bg" data-background="{{ asset('storage/'.$slide->item->items[0]->content) }}"></div>
                     <div class="container">
                         <div class="banner-two__content">
                             <h4 data-animation="fadeInUp" data-delay="1s"><img src="themes/webpage/assets/images/icon/fire.svg"
-                                    alt="icon"> GET <span class="primary-color">25% OFF</span> NOW</h4>
+                                    alt="icon"> GET <span class="primary-color">{{ $slide->item->items[1]->content }}</span> NOW</h4>
                             <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
                                 for <span class="primary-color">vaping</span></h1>
                             <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
