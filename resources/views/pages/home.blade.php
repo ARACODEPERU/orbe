@@ -13,8 +13,9 @@
         </div>
         <div class="swiper banner-two__slider">
             <div class="swiper-wrapper">
+                @foreach ($sliders as $key => $slide)
                 <div class="swiper-slide">
-                    <div class="slide-bg" data-background="themes/webpage/assets/images/banner/banner-two-image1.jpg"></div>
+                    <div class="slide-bg" data-background="{{ $slide->item[0]->content }}"></div>
                     <div class="container">
                         <div class="banner-two__content">
                             <h4 data-animation="fadeInUp" data-delay="1s"><img src="themes/webpage/assets/images/icon/fire.svg"
@@ -40,62 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="slide-bg" data-background="themes/webpage/assets/images/banner/banner-two-image2.jpg"></div>
-                    <div class="container">
-                        <div class="banner-two__content">
-                            <h4 data-animation="fadeInUp" data-delay="1s"><img src="themes/webpage/assets/images/icon/fire.svg"
-                                    alt="icon"> GET <span class="primary-color">25% OFF</span> NOW</h4>
-                            <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
-                                for <span class="primary-color">vaping</span></h1>
-                            <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
-                                with localized currencies languages, and <br> experie in
-                                every
-                                market. only a variety of vaping
-                                products</p>
-                            <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
-                                <span class="mb-10">Starting Price</span>
-                                <h3>$99.00</h3>
-                            </div>
-                            <div class="btn-wrp mt-65">
-                                <a href="shop.html" class="btn-one" data-animation="fadeInUp"
-                                    data-delay="1.8s"><span>Shop
-                                        Now</span></a>
-                                <a class="btn-one-light ml-20" href="shop-single.html" data-animation="fadeInUp"
-                                    data-delay="1.9s"><span>View
-                                        Details</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="slide-bg" data-background="themes/webpage/assets/images/banner/banner-two-image3.jpg"></div>
-                    <div class="container">
-                        <div class="banner-two__content">
-                            <h4 data-animation="fadeInUp" data-delay="1s"><img src="themes/webpage/assets/images/icon/fire.svg"
-                                    alt="icon"> GET <span class="primary-color">25% OFF</span> NOW</h4>
-                            <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
-                                for <span class="primary-color">vaping</span></h1>
-                            <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
-                                with localized currencies languages, and <br> experie in
-                                every
-                                market. only a variety of vaping
-                                products</p>
-                            <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
-                                <span class="mb-10">Starting Price</span>
-                                <h3>$99.00</h3>
-                            </div>
-                            <div class="btn-wrp mt-65">
-                                <a href="shop.html" class="btn-one" data-animation="fadeInUp"
-                                    data-delay="1.8s"><span>Shop
-                                        Now</span></a>
-                                <a class="btn-one-light ml-20" href="shop-single.html" data-animation="fadeInUp"
-                                    data-delay="1.9s"><span>View
-                                        Details</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="banner-two__arry-btn">
