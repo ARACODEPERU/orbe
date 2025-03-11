@@ -45,7 +45,7 @@ class WebPageController extends Controller
             ->get();
     }
 
-    
+
     public function index()
     {
         return view('pages.home');
@@ -96,17 +96,20 @@ class WebPageController extends Controller
             'lider' => $lider
         ]);
     }
-    
+
     public function categories()
     {
         return view('pages.categories');
     }
-    
+
     public function products()
     {
-        return view('pages.products');
+        $products = OnliItem::where('status', true)->get();
+        return view('pages.products',[
+            'products' => $products
+        ]);
     }
-    
+
     public function prodescription()
     {
         return view('pages.product-description');

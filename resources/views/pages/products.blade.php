@@ -8,8 +8,8 @@
         <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">Título de Categoria</h2>
         <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
             <a href="{{ route('index_main') }}" class="primary-hover">
-                <i class="fa-solid fa-house me-1"></i> 
-                    Home 
+                <i class="fa-solid fa-house me-1"></i>
+                    Home
                 <i class="fa-regular text-white fa-angle-right"></i>
             </a>
             <span>Título de Categoria</span>
@@ -34,24 +34,25 @@
         </div>
         <div class="row g-4">
             <div class="col-md-12">
-                <div class="row g-4"> 
+                <div class="row g-4">
                     {{-- QUE CARGUEN 20 PRODUCTOS Y LUEGO LA PAGINACIÓN --}}
+                    @foreach ($products as $product)
                     <div class="col-xl-3 col-lg-6 col-md-6">
                         <div class="product__item bor">
                             <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
                             <a href="shop-single.html" class="product__image pt-20 d-block">
-                                <img class="font-image" src="themes/webpage/assets/images/product/product-image1.png"
+                                <img class="font-image" src="{{ $product->image }}"
                                     alt="image">
-                                <img class="back-image" src="themes/webpage/assets/images/product/product-image3.png"
+                                <img class="back-image" src="{{ $product->image }}"
                                     alt="image">
                             </a>
                             <div class="product__content">
                                 <h4 class="mb-15">
                                     <a class="primary-hover" href="shop-single.html">
-                                        Título del producto
+                                        {{ $product->name }}
                                     </a>
                                 </h4>
-                                <del>S/ 74.50</del><span class="primary-color ml-10">S/ 49.50</span>
+                                <del>S/ {{ $product->price+($product->price*0.2) }}</del><span class="primary-color ml-10">S/ {{ $product->price }}</span>
                                 {{-- <div class="star mt-20">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -61,11 +62,12 @@
                                 </div> --}}
                             </div>
                             <a class="product__cart d-block bor-top" href="#0">
-                                <i class="fa-regular fa-cart-shopping primary-color me-1"></i> 
+                                <i class="fa-regular fa-cart-shopping primary-color me-1"></i>
                                 <span>Agregar al carrito</span>
                             </a>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <div class="pagi-wrp mt-65">
                     <a href="#0" class="pagi-btn">01</a>
