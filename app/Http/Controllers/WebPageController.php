@@ -45,7 +45,7 @@ class WebPageController extends Controller
             ->get();
     }
 
-    
+
     public function index()
     {
         $sliders = CmsSection::where('component_id', 'slider_area_3')  //siempre cambiar el id del componente
@@ -108,17 +108,25 @@ class WebPageController extends Controller
             'lider' => $lider
         ]);
     }
-    
+
     public function categories()
     {
         return view('pages.categories');
     }
-    
+
     public function products()
     {
-        return view('pages.products');
+        $products = OnliItem::where('status', true)->paginate(20);
+$count = $products->total();
+        // Repetir la consulta 6 veces para obtener un total de 36 filas pruebas
+
+
+        return view('pages.products',[
+            'products' => $products,
+            'count' => $count
+        ]);
     }
-    
+
     public function prodescription()
     {
         return view('pages.product-description');
