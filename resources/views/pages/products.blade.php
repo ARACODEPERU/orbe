@@ -22,7 +22,7 @@
 <section class="product-area pt-130 pb-130">
     <div class="container">
         <div class="pb-20 bor-bottom shop-page-wrp d-flex justify-content-between align-items-center mb-65">
-            <p class="fw-600">Mostrando 1–12 de 17 resultados</p>
+            <p class="fw-600">Mostrando del producto {{ $products->firstItem() }} al {{ $products->lastItem() }} de {{ $count }} en Total</p>
             <div class="short">
                 <select name="shortList" id="shortList">
                     <option value="0">Todos</option>
