@@ -50,7 +50,7 @@ class WebPageController extends Controller
             )
             ->orderBy('cms_section_items.position')
             ->get();
-
+                dd($sliders);
         return view(('pages.home'),[
             'sliders' => $sliders
         ]);
