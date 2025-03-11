@@ -68,13 +68,10 @@
                         </div>
                     </div>
                     @endforeach
+                    {{-- {{ $products->links() }} --}}
+                    {{ $products->links('paginator.custom_1', ['products' =>$products]) }}
                 </div>
-                <div class="pagi-wrp mt-65">
-                    <a href="#0" class="pagi-btn">01</a>
-                    <a href="#0" class="pagi-btn active">02</a>
-                    <a href="#0" class="pagi-btn ">03</a>
-                    <a href="#0" class="fa-regular ms-2 primary-hover fa-angle-right"></a>
-                </div>
+
             </div>
         </div>
     </div>

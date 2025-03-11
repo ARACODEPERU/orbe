@@ -104,7 +104,11 @@ class WebPageController extends Controller
 
     public function products()
     {
-        $products = OnliItem::where('status', true)->get();
+        $products = OnliItem::where('status', true)->paginate(1);
+
+        // Repetir la consulta 6 veces para obtener un total de 36 filas pruebas
+
+
         return view('pages.products',[
             'products' => $products
         ]);
