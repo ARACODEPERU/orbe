@@ -13,8 +13,7 @@
         </div>
         <div class="swiper banner-two__slider">
             <div class="swiper-wrapper">
-                @foreach ($sliders as $slide)
-                {{ dd($sliders) }}
+                {{-- @foreach ($sliders as $k => $slide)
                 <div class="swiper-slide">
                     <div class="slide-bg" data-background="{{ asset('storage/'.$slide->item->items[0]->content) }}"></div>
                     <div class="container">
@@ -42,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
         <div class="banner-two__arry-btn">
