@@ -24,12 +24,29 @@
         <div class="pb-20 bor-bottom shop-page-wrp d-flex justify-content-between align-items-center mb-65">
             <p class="fw-600">Mostrando del producto {{ $products->firstItem() }} al {{ $products->lastItem() }} de {{ $count }} en Total</p>
             <div class="short">
-                        <select name="category_id" id="shortList">
-                            <option value="0">Todos</option>
-                            @foreach ($categories as $key => $category)
-                                <option value="{{ $category->id }}"><a href="{{ route('web_products_with_category', $category->id) }}">{{ $category->description }}</a></option>
-                            @endforeach
-                        </select>
+                <select name="category_id" id="shortList" onchange="redirectToCategory()">
+                    <option value="0">Todos</option>
+                    @foreach ($categories as $key => $category)
+                        <option value="{{ $category->id }}">{{ $category->description }}</option>
+                    @endforeach
+                </select>
+
+                <script>
+                    function redirectToCategory() {
+                        var select = document.getElementById('shortList');
+                        var selectedCategoryId = select.value;
+
+                        // Si el valor seleccionado es "0" (Todos), no se incluye el category_id en la URL
+                        if (selectedCategoryId == 0) {
+                            var url = "{{ route('web_products_with_category') }}";
+                        } else {
+                            var baseUrl = "{{ route('web_products_with_category', ['category_id' => 'CATEGORY_ID']) }}";
+                            var url = baseUrl.replace('CATEGORY_ID', selectedCategoryId);
+                        }
+
+                        window.location.href = url;
+                    }
+                </script>
             </div>
         </div>
         <div class="row g-4">
