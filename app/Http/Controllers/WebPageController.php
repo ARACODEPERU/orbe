@@ -14,6 +14,7 @@ use Modules\Academic\Entities\AcaCourse;
 use Modules\Academic\Entities\AcaCategoryCourse;
 use Modules\Onlineshop\Entities\OnliSale;
 use Modules\Onlineshop\Entities\OnliSaleDetail;
+use Modules\Sales\Entities\SaleProductCategory;
 use MercadoPago\MercadoPagoConfig;
 use MercadoPago\Client\Preference\PreferenceClient;
 use MercadoPago\Client\Payment\PaymentClient;
@@ -34,7 +35,13 @@ class WebPageController extends Controller
     public function __construct()
     {
 
-        $this->listcard = CmsSection::where('component_id', 'cursos_area_5')
+
+    }
+
+
+    public function index()
+    {
+        $sliders = CmsSection::where('component_id', 'slider_area_3')  //siempre cambiar el id del componente
             ->join('cms_section_items', 'section_id', 'cms_sections.id')
             ->join('cms_items', 'cms_section_items.item_id', 'cms_items.id')
             ->select(
@@ -43,12 +50,10 @@ class WebPageController extends Controller
             )
             ->orderBy('cms_section_items.position')
             ->get();
-    }
-
-    
-    public function index()
-    {
-        return view('pages.home');
+                dd($sliders);
+        return view(('pages.home'),[
+            'sliders' => $sliders
+        ]);
     }
 
     public function about()
@@ -96,17 +101,84 @@ class WebPageController extends Controller
             'lider' => $lider
         ]);
     }
-    
+
     public function categories()
     {
         return view('pages.categories');
     }
-    
+
     public function products()
     {
-        return view('pages.products');
+        $products = OnliItem::where('status', true)->paginate(20);
+        $count = $products->total();
+        $category_id= 0;
+        $categories = SaleProductCategory::where('category_id', null)->get();
+        // Repetir la consulta 6 veces para obtener un total de 36 filas pruebas
+
+
+        return view('pages.products',[
+            'products' => $products,
+            'count' => $count,
+            'categories' => $categories
+        ]);
     }
-    
+
+    public function products_category($category_id = null)
+    {
+        $ids_category = [];
+        $count = null;
+        if ($category_id == null) {
+            $products = OnliItem::where('status', true)->paginate(20);
+            $count = $products->total();
+        } else {
+            // $products = OnliItem::where('onli_items.status', true)
+            // ->join('products', 'onli_items.item_id', 'products.id')
+            // ->join('sale_product_categories', 'products.category_id', 'sale_product_categories.id')
+            // ->where('sale_product_categories.id', $category_id)
+            // ->get();
+            $ids_category = [ (int)$category_id];
+            $ids_category = $this->get_categories($ids_category);
+
+            $products = OnliItem::join('products', 'onli_items.item_id', 'products.id')
+                                ->join('sale_product_categories', 'products.category_id', 'sale_product_categories.id')
+                                ->whereIn('sale_product_categories.id', $ids_category)
+                                ->where('onli_items.status', true)
+                                ->paginate(20);
+            $count = $products->total();
+        }
+
+        //$count = $products->total();
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+        return view('pages.products', [
+            'products' => $products,
+            'count' => $count,
+            'categories' => $categories
+        ]);
+    }
+
+    protected function get_categories($ids = []){
+        $categories = $ids;
+
+        foreach ($ids as $id) {
+            $results = SaleProductCategory::where('category_id', $id)
+                                          ->select('id')
+                                          ->get()
+                                          ->pluck('id')
+                                          ->toArray();
+            if($results){
+                $categories = array_merge($categories, $results);
+                if(count($results) > 0){
+                    $results = $this->get_categories($results);
+                    if($results){
+                        $categories = array_merge($categories, $results);
+                    }
+                }
+            }
+        }
+
+        return $categories;
+    }
+
     public function prodescription()
     {
         return view('pages.product-description');
