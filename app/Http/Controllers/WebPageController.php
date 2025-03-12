@@ -131,6 +131,7 @@ class WebPageController extends Controller
                                 ->join('sale_product_categories', 'products.category_id', 'sale_product_categories.id')
                                 ->whereIn('sale_product_categories.id', $ids_category)
                                 ->where('onli_items.status', true)
+                                ->select('onli_items.*')
                                 ->paginate(20);
             $count = $products->total();
         }
