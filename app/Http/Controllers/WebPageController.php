@@ -124,7 +124,7 @@ class WebPageController extends Controller
             // ->join('sale_product_categories', 'products.category_id', 'sale_product_categories.id')
             // ->where('sale_product_categories.id', $category_id)
             // ->get();
-            $ids_category = [ (int)$category_id];
+            $ids_category = [(int)$category_id];
             $ids_category = $this->get_categories($ids_category);
 
             $products = OnliItem::join('products', 'onli_items.item_id', 'products.id')
@@ -146,7 +146,6 @@ class WebPageController extends Controller
 
     protected function get_categories($ids = []){
         $categories = $ids;
-
         foreach ($ids as $id) {
             $results = SaleProductCategory::where('category_id', $id)
                                           ->select('id')
