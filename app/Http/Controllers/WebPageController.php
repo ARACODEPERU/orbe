@@ -115,6 +115,7 @@ class WebPageController extends Controller
     {
         $ids_category = [];
         $count = null;
+
         if ($category_id == null) {
             $products = OnliItem::where('status', true)->paginate(20);
             $count = $products->total();
@@ -138,10 +139,19 @@ class WebPageController extends Controller
 
         //$count = $products->total();
         $categories = SaleProductCategory::whereNull('category_id')->get();
+        $category_name = $categories->where('id', $category_id)->first();
+        if($category_name){
+            $category_name = $category_name->description;
+        }else{
+            $category_name = "Todos los Productos";
+        }
+
         return view('pages.products', [
             'products' => $products,
             'count' => $count,
-            'categories' => $categories
+            'categories' => $categories,
+            'category_id' => $category_id == null? 0 : $category_id,
+            'category_name' => $category_name
         ]);
     }
 

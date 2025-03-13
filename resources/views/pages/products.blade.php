@@ -5,14 +5,14 @@
 <!-- Page banner area start here -->
 <section class="page-banner bg-image pt-80 pb-80" data-background="{{ asset('themes/webpage/assets/images/banner/inner-banner.jpg') }}">
     <div class="container">
-        <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">Título de Categoria</h2>
+        <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">{{ $category_name }}</h2>
         <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
             <a href="{{ route('index_main') }}" class="primary-hover">
                 <i class="fa-solid fa-house me-1"></i>
                     Home
                 <i class="fa-regular text-white fa-angle-right"></i>
             </a>
-            <span>Título de Categoria</span>
+            <span>productos</span>
         </div>
     </div>
 </section>
@@ -25,9 +25,9 @@
             <p class="fw-600">Mostrando del producto {{ $products->firstItem() }} al {{ $products->lastItem() }} de {{ $count }} en Total</p>
             <div class="short">
                 <select name="category_id" id="shortList" onchange="redirectToCategory()">
-                    <option value="0">Todos</option>
+                    <option value="0" selected>Todos</option>
                     @foreach ($categories as $key => $category)
-                        <option value="{{ $category->id }}">{{ $category->description }}</option>
+                        <option {{ $category->id == $category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->description }}</option>
                     @endforeach
                 </select>
 
@@ -78,7 +78,7 @@
                                     <i class="fa-solid fa-star"></i>
                                 </div> --}}
                             </div>
-                            <a class="product__cart d-block bor-top" href="#0">
+                            <a class="product__cart d-block bor-top" href="#0" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }} })">
                                 <i class="fa-regular fa-cart-shopping primary-color me-1"></i>
                                 <span>Agregar al carrito</span>
                             </a>

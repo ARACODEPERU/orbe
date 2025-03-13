@@ -23,11 +23,13 @@
     <link rel="stylesheet" href="{{ asset('themes/webpage/assets/css/nice-select.css') }}">
     <!-- Style css -->
     <link rel="stylesheet" href="{{ asset('themes/webpage/assets/css/style.css') }}">
+    <script src="{{ asset('themes/orbe/carrito.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
-    
-    
+
+
     <!-- Header area start here -->
     <x-header />
     <!-- Header area end here -->

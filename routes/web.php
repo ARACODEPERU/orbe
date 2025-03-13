@@ -36,7 +36,7 @@ Route::get('/contacto', [WebPageController::class, 'contact'])->name('web_contac
 
 // Tienda en Linea
 Route::get('/categorias', [WebPageController::class, 'categories'])->name('web_categories');
-Route::get('/productos', [WebPageController::class, 'products'])->name('web_products');
+//Route::get('/productos', [WebPageController::class, 'products'])->name('web_products');
 Route::get('/productos/{category_id?}', [WebPageController::class, 'products_category'])->name('web_products_with_category');
 Route::get('/producto-descripcion', [WebPageController::class, 'prodescription'])->name('web_pro_description');
 Route::get('/carrito', [WebPageController::class, 'cart'])->name('web_cart');

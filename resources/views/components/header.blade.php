@@ -15,11 +15,14 @@
                         <i class="fa-regular fa-cart-shopping" style="font-size: 18px;"></i>
                     </span>
                     <a href="#0" class="c__one">
-                        <span>
-                            $0.00
+                        <span id="totalCarritoWeb" title="Precio Total del Carrito">
+                            S/ 0.00
                         </span>
                     </a>
-                    <span class="one"  style="background: #1397e1; color: #fff;">
+                    <span id="contadorCarritoWeb" class="one"  style="background: #1397e1; color: #fff;" title="Cantidad de productos en el carrito">
+                        0
+                    </span>
+                    <span id="contadorCarritoMovil" style="display: none" class="one"  style="background: #1397e1; color: #fff;" title="Cantidad de productos en el carrito">
                         0
                     </span>
                 </div>
