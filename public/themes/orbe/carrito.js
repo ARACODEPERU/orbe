@@ -86,7 +86,7 @@ function agregarAlCarrito(producto) {
             if (result.isConfirmed) {
                 // Obtener el carrito actual del almacenamiento local
                 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
+                producto.quantity = 1;
                 // Agregar el producto al carrito
                 carrito.push(producto);
 
