@@ -35,57 +35,7 @@
                                 <label class="product-removal">Acción</label>
                             </div>
                             <section id="cart">
-                            <div class="product p-4 bor-top bor-bottom d-flex justify-content-between align-items-center">
-                                <div class="product-details d-flex align-items-center">
-                                    <img src="themes/webpage/assets/images/shop/01.jpg" alt="image">
-                                    <h4 class="ps-4 text-capitalize">NebulaVape</h4>
-                                </div>
-                                <div class="product-price">12.99</div>
-                                <div class="product-quantity">
-                                    <input type="number" value="2" min="1">
-                                </div>
-                                <div class="product-line-price">25.98</div>
-                                <div class="product-removal">
-                                    <button class="remove-product">
-                                        <i class="fa-solid fa-x heading-color"></i>
-                                    </button>
-                                </div>
-                            </div>
 
-                            <div class="product p-4 bor-bottom d-flex justify-content-between align-items-center">
-                                <div class="product-details d-flex align-items-center">
-                                    <img src="themes/webpage/assets/images/shop/04.jpg" alt="image">
-                                    <h4 class="ps-4 text-capitalize">GravityGlide</h4>
-                                </div>
-                                <div class="product-price">99.99</div>
-                                <div class="product-quantity">
-                                    <input type="number" value="2" min="1">
-                                </div>
-
-                                <div class="product-line-price">199.99</div>
-                                <div class="product-removal">
-                                    <button class="remove-product">
-                                        <i class="fa-solid fa-x heading-color"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product p-4 d-flex justify-content-between align-items-center">
-                                <div class="product-details d-flex align-items-center">
-                                    <img src="themes/webpage/assets/images/shop/02.jpg" alt="image">
-                                    <h4 class="ps-4 text-capitalize">VortexVape
-                                    </h4>
-                                </div>
-                                <div class="product-price">25.98</div>
-                                <div class="product-quantity">
-                                    <input type="number" value="1" min="1">
-                                </div>
-                                <div class="product-line-price">25.98</div>
-                                <div class="product-removal">
-                                    <button class="remove-product">
-                                        <i class="fa-solid fa-x heading-color"></i>
-                                    </button>
-                                </div>
-                            </div>
                         </section>
 
                             <div class="totals">
@@ -196,27 +146,26 @@
                         <div class="col-md-3">
                             <div class="checkout__item-left sub-bg">
                                 <h3 class="mb-40">Datos del comprador</h3>
-                                <label class="mb-10" for="name">Tu nombre *</label>
-                                <input class="mb-20" id="name" type="text">
-                                <label class="mb-10" for="name">Teléfono *</label>
-                                <input class="mb-20" id="phone" type="text">
-                                <label class="mb-10" for="email">Correo electrónico*</label>
-                                <input class="mb-20" id="email" type="email">
-                                <label class="mb-10" for="companyName">Company Name (Optional)</label>
-                                <input class="mb-20" id="companyName" type="text">
-                                <h5 class="mb-10">Ciudad *</h5>
-                                <select class="mb-20" name="subject">
-                                    <option value="">Ciudad 1</option>
-                                    <option value="">Ciudad 2</option>
-                                    <option value="">Ciudad 3</option>
-                                    <option value="">Ciudad 4</option>
-                                </select>
-                                <label class="mb-10" for="streetAddress">Dirección de entrega*</label>
-                                <input class="mb-10" id="streetAddress" type="text">
-                                <br><br>
-                                <a style="width: 100%;" href="" class="btn-one" data-animation="fadeInUp" data-delay="1.8s" style="animation-delay: 1.8s;">
+
+                                <form action="{{ route('web_pay') }}" method="post">
+                                    @csrf
+                                <div id="input-hidden">
+                                            <input type="hidden" name="product_id[]">
+                                            <input type="hidden" name="product_name[]">
+                                            <input type="hidden" name="product_category_id[]">
+                                            <input type="hidden" name="product_quantity[]">
+                                            <input type="hidden" name="product_price[]">
+                                </div>
+                                <label class="mb-10" for="names">Tu nombre *</label>
+                                <input class="mb-20" id="names" name="names" type="text">
+                                <label class="mb-10" for="phone">Teléfono *</label>
+                                <input class="mb-20" name="phone" id="phone" type="text">
+
+                                <b type="submit" style="width: 100%;" href="" class="btn-one g-recaptcha" data-animation="fadeInUp" data-delay="1.8s" style="animation-delay: 1.8s;"  id="btn-crear-cuenta">
                                     <span>Comprar</span>
-                                </a>
+                                </b>
+                                </form>
+
                             </div>
                         </div>
                 </form>
@@ -225,6 +174,29 @@
         </section>
         <!-- cart page area end here -->
 
+        <script>
+            function quantity(index, masmen, price) {
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                if (masmen == 1) {
+                    carrito[index].quantity = parseInt(carrito[index].quantity) + 1;
+                }
+                if (masmen == 0) {
+                    if (carrito[index].quantity > 1) {
+                        carrito[index].quantity = parseInt(carrito[index].quantity) - 1;
+                    }
+                }
+                document.getElementById("p_q_" + carrito[index].id).value = carrito[index]
+                    .quantity; //cambiar valor en el los inputHidden del form pay
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                console.log(carrito[index].quantity);
+                console.log(carrito[index].quantity * price);
+                document.getElementById(index + "qty").value = carrito[index].quantity;
+                let tempSubTotal = carrito[index].quantity * price;
+                document.getElementById(index + "subTotal").innerHTML = "S/ " + formatearNumero(tempSubTotal);
+                getTotal();
+            }
+        </script>
 
         <script>
 
@@ -405,9 +377,13 @@ function renderProducto(respuesta, i) {
                             </div>
                             <div class="product-price">` + price + `</div>
                             <div class="product-quantity">
-                                <input type="number" value="`+carrito[i].quantity+`" min="1">
+                                <div class="plus-minus">
+                                <a class="dec qtybutton" onclick="quantity(` + i + `, 0, `+price+`)">-</a>
+                                <input type="number" id="`+i+`qty" value="`+carrito[i].quantity+`" min="1">
+                                <a class="inc qtybutton" onclick="quantity(` + i + `, 1, `+price+`)">+</a>
+                                </div>
                             </div>
-                            <div class="product-line-price">25.98</div>
+                            <div class="product-line-price">`+(price*carrito[i].quantity).toFixed(2)+`</div>
                             <div class="product-removal">
                                 <button class="remove-product" onclick="eliminarproducto({ id: ` + id + `, nombre: '` +
                           name + `', precio: ` + price + ` });">
