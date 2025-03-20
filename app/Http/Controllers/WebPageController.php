@@ -41,12 +41,15 @@ class WebPageController extends Controller
 
     public function index()
     {
-        return view('pages.home');
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+
+        return view('pages.home', compact('categories'));
     }
 
     public function about()
     {
-        return view('pages.about');
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+        return view('pages.about', compact('categories'));
     }
 
     public function nosotros()
@@ -420,7 +423,8 @@ class WebPageController extends Controller
 
     public function contact()
     {
-        return view('pages.contact');
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+        return view('pages.contact', compact('categories'));
     }
 
     public function contacto()

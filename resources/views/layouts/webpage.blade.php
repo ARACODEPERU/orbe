@@ -31,7 +31,7 @@
 
 
     <!-- Header area start here -->
-    <x-header />
+    <x-header :categories="$categories" />
     <!-- Header area end here -->
 
     <!-- Preloader area start -->

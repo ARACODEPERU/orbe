@@ -65,28 +65,16 @@
                     <a href="{{ route('web_about') }}">Nosotros</a>
                 </li>
                 <li>
-                    <a href="">Productos <i class="fa-regular fa-angle-down"></i></a>
+                    <a href="{{ route('web_products_with_category') }}">Productos <i class="fa-regular fa-angle-down"></i></a>
                     <ul class="sub-menu">
-                        <li class="subtwohober">
-                            <a href="index.html">
-                                Pedestales
-                            </a>
-                        </li>
-                        <li class="subtwohober">
-                            <a href="index.html">
-                                Conectores
-                            </a>
-                        </li>
-                        <li class="subtwohober">
-                            <a href="index.html">
-                                Cables
-                            </a>
-                        </li>
-                        <li class="subtwohober">
-                            <a href="index.html">
-                                Microfonos
-                            </a>
-                        </li>
+                        @foreach ($categories as $category)
+                            <li class="subtwohober">
+                                <a href="{{ route('web_products_with_category', ['category_id' => $category->id]) }}">
+                                    {{ $category->description }}
+                                </a>
+                            </li>
+
+                        @endforeach
                     </ul>
                 </li>
                 <li>
