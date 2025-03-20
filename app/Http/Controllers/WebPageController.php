@@ -42,14 +42,23 @@ class WebPageController extends Controller
     public function index()
     {
         $categories = SaleProductCategory::whereNull('category_id')->get();
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
 
-        return view('pages.home', compact('categories'));
+
+        return view('pages.home', compact('categories', 'subcategories'));
     }
 
     public function about()
     {
         $categories = SaleProductCategory::whereNull('category_id')->get();
-        return view('pages.about', compact('categories'));
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
+        return view('pages.about', compact('categories', 'subcategories'));
     }
 
     public function nosotros()
@@ -142,6 +151,10 @@ class WebPageController extends Controller
 
         //$count = $products->total();
         $categories = SaleProductCategory::whereNull('category_id')->get();
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
         $category_name = $categories->where('id', $category_id)->first();
         if($category_name){
             $category_name = $category_name->description;
@@ -154,7 +167,9 @@ class WebPageController extends Controller
             'count' => $count,
             'categories' => $categories,
             'category_id' => $category_id == null? 0 : $category_id,
-            'category_name' => $category_name
+            'category_name' => $category_name,
+            'subcategories' => $subcategories
+
         ]);
     }
 
@@ -424,7 +439,11 @@ class WebPageController extends Controller
     public function contact()
     {
         $categories = SaleProductCategory::whereNull('category_id')->get();
-        return view('pages.contact', compact('categories'));
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
+        return view('pages.contact', compact('categories', 'subcategories'));
     }
 
     public function contacto()

@@ -383,6 +383,7 @@ function actualizarContador(valor) {
     // Obtener el elemento del contador
     //var contadorCarritoMovil = document.getElementById("contadorCarritoMovil");
     var contadorCarritoWeb = document.getElementById("contadorCarritoWeb");
+    var totalCarritoWeb = document.getElementById("totalCarritoWeb");
 
     if (valor == 0) {
        // contadorCarritoMovil.setAttribute("hidden", true); // Ocultar el contador
@@ -390,6 +391,7 @@ function actualizarContador(valor) {
     } else {
         //contadorCarritoMovil.removeAttribute("hidden"); // Mostrar el contador
         contadorCarritoWeb.removeAttribute("hidden"); // Mostrar el contador
+
     }
     console.log(valor);
     //contadorCarritoMovil.innerHTML = valor;

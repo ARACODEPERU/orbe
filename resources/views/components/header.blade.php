@@ -64,6 +64,22 @@
                 <li>
                     <a href="{{ route('web_about') }}">Nosotros</a>
                 </li>
+                @foreach ( $categories as $key => $category )
+                    <li>
+                            <a href="{{ route('web_products_with_category', ['category_id' => $category->id]) }}">{{ $category->description }}</a>
+                            <ul class="sub-menu">
+                                @foreach ($subcategories[$key] as $k => $subcategory)
+                                    <li class="subtwohober">
+                                        <a href="{{ route('web_products_with_category', ['category_id' => $subcategory['id']]) }}">
+                                            {{ $subcategory['description'] }}
+                                        </a>
+                                    </li>
+
+                                @endforeach
+                            </ul>
+                    </li>
+
+                @endforeach
                 <li>
                     <a href="{{ route('web_products_with_category') }}">Productos <i class="fa-regular fa-angle-down"></i></a>
                     <ul class="sub-menu">
