@@ -2649,9 +2649,9 @@ input {
   color: var(--black);
   text-transform: capitalize;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   display: block;
-  padding: 8px 20px;
+  padding: 8px 15px;
 }
 .header-wrapper .main-menu li .sub-menu li a i {
   font-size: 14px !important;

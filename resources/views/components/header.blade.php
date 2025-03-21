@@ -59,10 +59,10 @@
             </div>
             <ul class="main-menu">
                 <li>
-                    <a href="{{ route('index_main') }}">Home</a>
+                    <a href="{{ route('index_main') }}" style="text-transform:uppercase;">Home</a>
                 </li>
                 <li>
-                    <a href="{{ route('web_about') }}">Nosotros</a>
+                    <a href="{{ route('web_about') }}" style="text-transform:uppercase;">Nosotros</a>
                 </li>
                 @foreach ( $categories as $key => $category )
                     <li>
@@ -80,7 +80,8 @@
                     </li>
 
                 @endforeach
-                <li>
+
+                {{-- <li>
                     <a href="{{ route('web_products_with_category') }}">Productos <i class="fa-regular fa-angle-down"></i></a>
                     <ul class="sub-menu">
                         @foreach ($categories as $category)
@@ -92,10 +93,11 @@
 
                         @endforeach
                     </ul>
-                </li>
-                <li>
-                    <a href="{{ route('web_contact') }}">Contactanos</a>
-                </li>
+                </li> --}}
+
+                {{-- <li>
+                    <a href="{{ route('web_contact') }}" style="text-transform:uppercase;">Contacto</a>
+                </li> --}}
             </ul>
             {{-- <div class="shipping__item d-none d-sm-flex align-items-center">
                 <div class="menu__right d-flex align-items-center">
