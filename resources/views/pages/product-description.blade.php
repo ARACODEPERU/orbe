@@ -6,18 +6,18 @@
         <section class="page-banner bg-image pt-80 pb-80" data-background="{{ asset('themes/webpage/assets/images/banner/inner-banner.jpg') }}">
             <div class="container">
                 <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">
-                    Descripción del producto
+                    {{ $product->name }}
                 </h2>
                 <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
                     <a href="" class="primary-hover">
-                        <i class="fa-solid fa-house me-1"></i> 
+                        <i class="fa-solid fa-house me-1"></i>
                         Home <i class="fa-regular text-white fa-angle-right"></i>
                     </a>
-                    <a href="" class="primary-hover"> 
-                        Categorias 
+                    <a href="" class="primary-hover">
+                        Categorias
                         <i class="fa-regular text-white fa-angle-right"></i>
                     </a>
-                    <span>Descripción del producto</span>
+                    <span>{{ $product->name }}</span>
                 </div>
             </div>
         </section>
@@ -34,7 +34,7 @@
                                 <div class="swiper shop-single-slide">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="{{ asset('themes/webpage/assets/images/shop/01.jpg') }}" alt="image">
+                                            <img src="{{$product->image}}" alt="image">
                                         </div>
                                         <div class="swiper-slide">
                                             <img src="{{ asset('themes/webpage/assets/images/shop/02.jpg') }}" alt="image">
@@ -50,7 +50,7 @@
                                 <div class="mt-3 swiper shop-slider-thumb">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide slide-smoll">
-                                            <img src="{{ asset('themes/webpage/assets/images/shop/01.jpg') }}" alt="image">
+                                            <img src="{{ $product->image }}" alt="image">
                                         </div>
                                         <div class="swiper-slide slide-smoll">
                                             <img src="{{ asset('themes/webpage/assets/images/shop/02.jpg') }}" alt="image">
@@ -75,22 +75,10 @@
                                     <span><i class="fa-solid fa-star sm-font"></i></span>
                                     <span><i class="fa-solid fa-star-half-stroke sm-font"></i></span>
                                 </div> --}}
-                                <h2 class="pb-3"><del>S/ 74.50</del>&nbsp; S/ 49.50</h2>
+                                <h2 class="pb-3"><del>S/ {{ $product->price+($product->price*0.2) }}</del>&nbsp; S/ {{$product->price}}</h2>
                                 {{-- <h4 class="pb-2 primary-color">Descripción</h4> --}}
                                 <p class="text-justify mb-10">
-                                    Rapidiusly transform corporate expertise whereas
-                                    enterprise-wide
-                                    web
-                                    services.
-                                    Progressively whiteboard multifunctional
-                                    networks for pandemic total linkage a Synergistically recaptiualize client and based
-                                    methods of empowerment with
-                                    sustainable bandwidth.
-                                    <br>
-                                    Progressively whiteboard multifunctional
-                                    networks for pandemic total linkage a Synergistically recaptiualize client and based
-                                    methods of empowerment with
-                                    sustainable bandwidth.
+                                    {!!$product->description!!}
                                 </p>
                             </div>
                             <div class="row">

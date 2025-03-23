@@ -25,22 +25,23 @@
             </ul> --}}
         </div>
         <div class="row g-4"> {{-- Elmer aqui tienen que cargar los ultimos 8 productos agregados --}}
+            @foreach ($products as $product )
             <div class="col-xxl-3 col-xl-4 col-md-6">
                 <div class="product__item bor">
                     <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="{{ route('web_pro_description') }}" class="product__image pt-20 d-block">
-                        <img class="font-image" src="themes/webpage/assets/images/product/product-image1.png"
+                    <a href="{{ route('web_pro_description', $product->id) }}" class="product__image pt-20 d-block">
+                        <img class="font-image" src="{{ $product->image }}"
                             alt="image">
-                        <img class="back-image" src="themes/webpage/assets/images/product/product-image3.png"
+                        <img class="back-image" src="{{ $product->image }}"
                             alt="image">
                     </a>
                     <div class="product__content">
                         <h4 class="mb-15">
-                            <a class="primary-hover" href="{{ route('web_pro_description') }}">
-                                Nombre del Producto
+                            <a class="primary-hover" href="{{ route('web_pro_description', $product->id) }}">
+                                {{ $product->name }}
                             </a>
                         </h4>
-                        <del>S/ 74.50</del><span class="primary-color ml-10">S/ 49.50</span>
+                        <del>S/ {{ $product->price+($product->price*0.2) }}</del><span class="primary-color ml-10">S/ {{ $product->price }}</span>
                         {{-- <div class="star mt-20">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -49,218 +50,19 @@
                             <i class="fa-solid fa-star"></i>
                         </div> --}}
                     </div>
-                    <a class="product__cart d-block bor-top" href="#0"><i
+                    <a class="product__cart d-block bor-top" href="#0" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }} })"><i
                             class="fa-regular fa-cart-shopping primary-color me-1"></i>
                         <span>Agregar al Carrito</span>
                     </a>
                 </div>
             </div>
-            {{-- <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="product__item bor">
-                    <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="shop-single.html" class="product__image pt-20 d-block">
-                        <img class="font-image" src="themes/webpage/assets/images/product/product-image2.png"
-                            alt="image">
-                        <img class="back-image" src="themes/webpage/assets/images/product/product-image4.png"
-                            alt="image">
-                    </a>
-                    <div class="product__content">
-                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">Disposable
-                                Sub-Ohm Tank</a></h4>
-                        <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
-                        <div class="star mt-20">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                    </div>
-                    <a class="product__cart d-block bor-top" href="#0"><i
-                            class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                        <span>Add to
-                            cart</span></a>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="product__item bor">
-                    <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="shop-single.html" class="product__image pt-20 d-block">
-                        <img class="font-image" src="themes/webpage/assets/images/product/product-image3.png"
-                            alt="image">
-                        <img class="back-image" src="themes/webpage/assets/images/product/product-image5.png"
-                            alt="image">
-                    </a>
-                    <div class="product__content">
-                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">POP
-                                Extra
-                                Strawberry</a></h4>
-                        <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
-                        <div class="star mt-20">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                    </div>
-                    <a class="product__cart d-block bor-top" href="#0"><i
-                            class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                        <span>Add to
-                            cart</span></a>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="product__item bor">
-                    <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="shop-single.html" class="product__image pt-20 d-block">
-                        <img class="font-image" src="themes/webpage/assets/images/product/product-image4.png"
-                            alt="image">
-                        <img class="back-image" src="themes/webpage/assets/images/product/product-image6.png"
-                            alt="image">
-                    </a>
-                    <div class="product__content">
-                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">Battery
-                                And
-                                Charger Kit</a></h4>
-                        <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
-                        <div class="star mt-20">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                    </div>
-                    <a class="product__cart d-block bor-top" href="#0"><i
-                            class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                        <span>Add to
-                            cart</span></a>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="product__item bor">
-                    <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="shop-single.html" class="product__image pt-20 d-block">
-                        <img class="font-image" src="themes/webpage/assets/images/product/product-image5.png"
-                            alt="image">
-                        <img class="back-image" src="themes/webpage/assets/images/product/product-image3.png"
-                            alt="image">
-                    </a>
-                    <div class="product__content">
-                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">Pods
-                                Sold
-                                Separately</a></h4>
-                        <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
-                        <div class="star mt-20">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                    </div>
-                    <a class="product__cart d-block bor-top" href="#0"><i
-                            class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                        <span>Add to
-                            cart</span></a>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="product__item bor">
-                    <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="shop-single.html" class="product__image pt-20 d-block">
-                        <img class="font-image" src="themes/webpage/assets/images/product/product-image6.png"
-                            alt="image">
-                        <img class="back-image" src="themes/webpage/assets/images/product/product-image4.png"
-                            alt="image">
-                    </a>
-                    <div class="product__content">
-                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">GeekVape
-                                Obelisk Pod</a></h4>
-                        <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
-                        <div class="star mt-20">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                    </div>
-                    <a class="product__cart d-block bor-top" href="#0"><i
-                            class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                        <span>Add to
-                            cart</span></a>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="product__item bor">
-                    <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="shop-single.html" class="product__image pt-20 d-block">
-                        <img class="font-image" src="themes/webpage/assets/images/product/product-image7.png"
-                            alt="image">
-                        <img class="back-image" src="themes/webpage/assets/images/product/product-image4.png"
-                            alt="image">
-                    </a>
-                    <div class="product__content">
-                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">POP Extra
-                                Strawberry</a></h4>
-                        <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
-                        <div class="star mt-20">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                    </div>
-                    <a class="product__cart d-block bor-top" href="#0"><i
-                            class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                        <span>Add to
-                            cart</span></a>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="product__item bor">
-                    <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
-                    <a href="shop-single.html" class="product__image pt-20 d-block">
-                        <img class="font-image" src="themes/webpage/assets/images/product/product-image8.png"
-                            alt="image">
-                        <img class="back-image" src="themes/webpage/assets/images/product/product-image4.png"
-                            alt="image">
-                    </a>
-                    <div class="product__content">
-                        <h4 class="mb-15"><a class="primary-hover" href="shop-single.html">100ml
-                                Nic
-                                Salt Juice</a></h4>
-                        <del>$74.50</del><span class="primary-color ml-10">$49.50</span>
-                        <div class="star mt-20">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                    </div>
-                    <a class="product__cart d-block bor-top" href="#0"><i
-                            class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                        <span>Add to
-                            cart</span></a>
-                </div>
-            </div> --}}
+            @endforeach
         </div>
         <br>
         <div class="row g-4">
             <div class="col-md-4"></div>
             <div class="col-md-4" style="text-align:center;">
-                <a href="{{ route('web_categories') }}" class="btn-one" data-animation="fadeInUp" data-delay="1.8s">
+                <a href="{{ route('web_products_with_category') }}" class="btn-one" data-animation="fadeInUp" data-delay="1.8s">
                     <span>Todos los productos</span>
                 </a>
             </div>
