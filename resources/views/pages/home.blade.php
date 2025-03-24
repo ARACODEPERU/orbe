@@ -129,7 +129,7 @@
     <!-- View area end here -->
 
     <!-- Product area start here -->
-    <x-products />
+    <x-products :products="$products" />
     <!-- Product area end here -->
 
     <!-- Discount area start here -->

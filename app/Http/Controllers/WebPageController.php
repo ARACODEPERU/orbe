@@ -46,9 +46,11 @@ class WebPageController extends Controller
         foreach ($categories as $key => $category) {
             $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
         }
+        $products = OnliItem::where('status', true)->latest()->take(25)->get();
+        $products = $products->shuffle()->take(8);
 
 
-        return view('pages.home', compact('categories', 'subcategories'));
+        return view('pages.home', compact('categories', 'subcategories', 'products'));
     }
 
     public function about()
@@ -195,9 +197,15 @@ class WebPageController extends Controller
         return $categories;
     }
 
-    public function prodescription()
+    public function prodescription($id)
     {
-        return view('pages.product-description');
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
+        $product = OnliItem::find($id);
+        return view('pages.product-description', compact('categories', 'subcategories', 'product'));
     }
 
     public function cursos()
