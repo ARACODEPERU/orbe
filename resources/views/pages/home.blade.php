@@ -3,16 +3,36 @@
 @section('content')
     <!-- Banner area start here -->
     <section class="banner-two">
-        <div class="banner-two__shape-left d-none d-lg-block wow bounceInLeft" data-wow-duration="1s"
-            data-wow-delay=".5s">
-            <img src="themes/webpage/assets/images/shape/vape1.png" alt="shape">
-        </div>
-        <div class="banner-two__shape-right d-none d-lg-block wow bounceInRight" data-wow-duration="1s"
-            data-wow-delay=".1s">
-            <img class="sway_Y__animation " src="themes/webpage/assets/images/shape/vape2.png" alt="shape">
-        </div>
         <div class="swiper banner-two__slider">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper"><div class="swiper-slide">
+                <div class="slide-bg" data-background="{{ asset('themes/webpage/assets/images/shape/vape2.png') }}"></div>
+                <div class="container">
+                    <div class="banner-two__content">
+                        <h4 data-animation="fadeInUp" data-delay="1s">
+                            <img src="themes/webpage/assets/images/icon/fire.svg" alt="icon"> 
+                            GET <span class="primary-color">20%</span> NOW
+                        </h4>
+                        <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
+                            for <span class="primary-color">vaping</span></h1>
+                        <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
+                            with localized currencies languages, and <br> experie in
+                            every
+                            market. only a variety of vaping
+                            products</p>
+                        <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
+                            <span class="mb-10">Starting Price</span>
+                            <h3>$99.00</h3>
+                        </div>
+                        <div class="btn-wrp mt-65">
+                            <a href="shop.html" class="btn-one" data-animation="fadeInUp"
+                                data-delay="1.8s"><span>Shop
+                                    Now</span></a>
+                            <a class="btn-one-light ml-20" href="shop-single.html" data-animation="fadeInUp"
+                                data-delay="1.9s"><span>View Details</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 {{-- @foreach ($sliders as $k => $slide)
                 <div class="swiper-slide">
                     <div class="slide-bg" data-background="{{ asset('storage/'.$slide->item->items[0]->content) }}"></div>
