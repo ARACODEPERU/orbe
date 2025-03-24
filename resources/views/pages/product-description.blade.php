@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="content h24">
-                                <h3 class="pb-2 primary-color">Título del producto</h3>
+                                <h3 class="pb-2 primary-color">{{$product->name}}</h3>
                                 {{-- <div class="star primary-color pb-2">
                                     <span><i class="fa-solid fa-star sm-font"></i></span>
                                     <span><i class="fa-solid fa-star sm-font"></i></span>
