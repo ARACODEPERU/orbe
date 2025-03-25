@@ -60,7 +60,7 @@
                     <div class="view__left-item">
                         <div class="image">
                             {{-- <img src="themes/webpage/assets/images/view/view-image1.jpg" alt="image"> --}}
-                            <img src="{{ asset('store/'.$servicios[0]->content)  }}" alt="image">
+                            <img src="{{ asset('storage/'.$servicios[0]->content)  }}" alt="image">
                         </div>
                         <div class="view__left-content sub-bg">
                             <h2>
@@ -94,7 +94,7 @@
                         </div>
                         <div class="view__image">
                             {{-- <img src="themes/webpage/assets/images/view/view-image2.jpg" alt="image"> --}}
-                            <img src="{{ $servicios[4]->content }}" alt="image">
+                            <img src="{{ asset('storage/'.$servicios[4]->content)  }}" alt="image">
                         </div>
                     </div>
                     <div class="view__item wow fadeInUp" data-wow-delay=".3s">
@@ -113,7 +113,7 @@
                         </div>
                         <div class="view__image">
                             {{-- <img src="themes/webpage/assets/images/view/view-image3.jpg" alt="image"> --}}
-                            <img src="{{ $servicios[8]->content }}" alt="image">
+                            <img src="{{ asset('storage/'.$servicios[8]->content)  }}" alt="image">
                         </div>
                     </div>
                 </div>
