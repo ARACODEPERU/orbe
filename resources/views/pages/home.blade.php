@@ -60,7 +60,7 @@
                     <div class="view__left-item">
                         <div class="image">
                             {{-- <img src="themes/webpage/assets/images/view/view-image1.jpg" alt="image"> --}}
-                            <img src="{{ $servicios[0]->content }}" alt="image">
+                            <img src="{{ asset('store/'.$servicios[0]->content)  }}" alt="image">
                         </div>
                         <div class="view__left-content sub-bg">
                             <h2>
