@@ -82,38 +82,38 @@
                         <div class="view__content">
                             <h3>
                                 <a class="primary-hover" href="">
-                                    {{ $servicios[4]->content }}
+                                    {{ $servicios[5]->content }}
                                 </a>
                             </h3>
                             <p>
-                                {{ $servicios[5]->content }}
+                                {{ $servicios[6]->content }}
                             </p>
-                            <a class="btn-two" href="{{ $servicios[6]->content }}">
+                            <a class="btn-two" href="{{ $servicios[7]->content }}">
                                 <span>Más Información</span>
                             </a>
                         </div>
                         <div class="view__image">
                             {{-- <img src="themes/webpage/assets/images/view/view-image2.jpg" alt="image"> --}}
-                            <img src="{{ $servicios[7]->content }}" alt="image">
+                            <img src="{{ $servicios[4]->content }}" alt="image">
                         </div>
                     </div>
                     <div class="view__item wow fadeInUp" data-wow-delay=".3s">
                         <div class="view__content">
                             <h3>
                                 <a class="primary-hover" href="">
-                                    {{ $servicios[8]->content }}
+                                    {{ $servicios[9]->content }}
                                 </a>
                             </h3>
                             <p>
-                                {{ $servicios[9]->content }}
+                                {{ $servicios[10]->content }}
                             </p>
-                            <a class="btn-two" href="{{ $servicios[10]->content }}">
+                            <a class="btn-two" href="{{ $servicios[11]->content }}">
                                 <span>Más Información</span>
                             </a>
                         </div>
                         <div class="view__image">
                             {{-- <img src="themes/webpage/assets/images/view/view-image3.jpg" alt="image"> --}}
-                            <img src="{{ $servicios[11]->content }}" alt="image">
+                            <img src="{{ $servicios[8]->content }}" alt="image">
                         </div>
                     </div>
                 </div>
