@@ -49,8 +49,25 @@ class WebPageController extends Controller
         $products = OnliItem::where('status', true)->latest()->take(25)->get();
         $products = $products->shuffle()->take(8);
 
+        $servicios = CmsSection::where('component_id', 'servicios_area_4')
+            ->join('cms_section_items', 'section_id', 'cms_sections.id')
+            ->join('cms_items', 'cms_section_items.item_id', 'cms_items.id')
+            ->select(
+                'cms_items.content',
+                'cms_section_items.position'
+            )
+            ->orderBy('cms_section_items.position')
+            ->get();
 
-        return view('pages.home', compact('categories', 'subcategories', 'products'));
+
+        // return view('pages.home', compact('categories', 'subcategories', 'products'));
+
+        return view('pages.home', [
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'products' => $products,
+            'servicios' => $servicios
+        ]);
     }
 
     public function about()

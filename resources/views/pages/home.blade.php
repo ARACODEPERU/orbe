@@ -59,38 +59,61 @@
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay=".1s">
                     <div class="view__left-item">
                         <div class="image">
-                            <img src="themes/webpage/assets/images/view/view-image1.jpg" alt="image">
+                            {{-- <img src="themes/webpage/assets/images/view/view-image1.jpg" alt="image"> --}}
+                            <img src="{{ $servicios[0]->content }}" alt="image">
                         </div>
                         <div class="view__left-content sub-bg">
-                            <h2><a class="primary-hover" href="shop-single.html">The best e-liqued bundles</a>
+                            <h2>
+                                <a class="primary-hover" href="">
+                                    {{ $servicios[1]->content }}
+                                </a>
                             </h2>
-                            <p class="fw-600">Sell globally in minutes with localized currencies languages, and
-                                experie
-                                in every market. only a variety of vaping
-                                products</p>
-                            <a class="btn-two" href="shop-single.html"><span>Más Información</span></a>
+                            <p class="fw-600">
+                                {{ $servicios[2]->content }}
+                            </p>
+                            <a class="btn-two" href="{{ $servicios[3]->content }}">
+                                <span>Más Información</span>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="view__item mb-25 wow fadeInDown" data-wow-delay=".2s">
                         <div class="view__content">
-                            <h3><a class="primary-hover" href="shop-single.html">new to vapeing?</a></h3>
-                            <p>Whereas recognition of the inherent dignity</p>
-                            <a class="btn-two" href="shop-single.html"><span>Más Información</span></a>
+                            <h3>
+                                <a class="primary-hover" href="">
+                                    {{ $servicios[4]->content }}
+                                </a>
+                            </h3>
+                            <p>
+                                {{ $servicios[5]->content }}
+                            </p>
+                            <a class="btn-two" href="{{ $servicios[6]->content }}">
+                                <span>Más Información</span>
+                            </a>
                         </div>
                         <div class="view__image">
-                            <img src="themes/webpage/assets/images/view/view-image2.jpg" alt="image">
+                            {{-- <img src="themes/webpage/assets/images/view/view-image2.jpg" alt="image"> --}}
+                            <img src="{{ $servicios[7]->content }}" alt="image">
                         </div>
                     </div>
                     <div class="view__item wow fadeInUp" data-wow-delay=".3s">
                         <div class="view__content">
-                            <h3><a class="primary-hover" href="shop-single.html">Vap mode</a></h3>
-                            <p>Whereas recognition of the inherent dignity</p>
-                            <a class="btn-two" href="shop-single.html"><span>Más Información</span></a>
+                            <h3>
+                                <a class="primary-hover" href="">
+                                    {{ $servicios[8]->content }}
+                                </a>
+                            </h3>
+                            <p>
+                                {{ $servicios[9]->content }}
+                            </p>
+                            <a class="btn-two" href="{{ $servicios[10]->content }}">
+                                <span>Más Información</span>
+                            </a>
                         </div>
                         <div class="view__image">
-                            <img src="themes/webpage/assets/images/view/view-image3.jpg" alt="image">
+                            {{-- <img src="themes/webpage/assets/images/view/view-image3.jpg" alt="image"> --}}
+                            <img src="{{ $servicios[11]->content }}" alt="image">
                         </div>
                     </div>
                 </div>
