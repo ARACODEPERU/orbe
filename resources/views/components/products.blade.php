@@ -1,10 +1,10 @@
-<section class="product-area pt-130 pb-130 mt-130">
+<section class="product-area pt-20 pb-30 mt-100">
     <div class="container">
         <div
             class="product__wrp pb-30 mb-65 bor-bottom d-flex flex-wrap align-items-center justify-content-xl-between justify-content-center">
             <div class="section-header d-flex align-items-center wow fadeInUp" data-wow-delay=".1s">
                 <span class="title-icon mr-10"></span>
-                <h2>Últimos productos llegados</h2>
+                <h2>Nuevos Ingresos</h2>
             </div>
             {{-- <ul class="nav nav-pills mt-4 mt-xl-0">
                 <li class="nav-item wow fadeInUp" data-wow-delay=".1s">
@@ -50,6 +50,7 @@
                             <i class="fa-solid fa-star"></i>
                         </div> --}}
                     </div>
+                    <br>
                     <a class="product__cart d-block bor-top" href="#0" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }} })"><i
                             class="fa-regular fa-cart-shopping primary-color me-1"></i>
                         <span>Agregar al Carrito</span>

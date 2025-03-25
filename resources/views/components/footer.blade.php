@@ -51,7 +51,7 @@
             <a href="index.html" class="logo d-block">
                 <img src="themes/webpage/assets/images/logo/logo.svg" alt="logo">
             </a>
-            <p>&copy; Copyright 2025 <a href="#0" class="primary-hover">Orbe</a> Todos los derechos reservados</p>
+            <p>&copy; Copyright 2025 <a href="#0" class="primary-hover">Orbe</a> Todos los derechos reservados | Desarrollado por <a href="">Aracode Smarth Solutión</a></p>
             <a href="#0" class="payment d-block image">
                 <img src="themes/webpage/assets/images/icon/payment.png" alt="icon">
             </a>

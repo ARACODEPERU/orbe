@@ -4,42 +4,15 @@
     <!-- Banner area start here -->
     <section class="banner-two">
         <div class="swiper banner-two__slider">
-            <div class="swiper-wrapper"><div class="swiper-slide">
-                <div class="slide-bg" data-background="{{ asset('themes/webpage/assets/images/shape/vape2.png') }}"></div>
-                <div class="container">
-                    <div class="banner-two__content">
-                        <h4 data-animation="fadeInUp" data-delay="1s">
-                            <img src="themes/webpage/assets/images/icon/fire.svg" alt="icon"> 
-                            GET <span class="primary-color">20%</span> NOW
-                        </h4>
-                        <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
-                            for <span class="primary-color">vaping</span></h1>
-                        <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
-                            with localized currencies languages, and <br> experie in
-                            every
-                            market. only a variety of vaping
-                            products</p>
-                        <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
-                            <span class="mb-10">Starting Price</span>
-                            <h3>$99.00</h3>
-                        </div>
-                        <div class="btn-wrp mt-65">
-                            <a href="shop.html" class="btn-one" data-animation="fadeInUp"
-                                data-delay="1.8s"><span>Shop
-                                    Now</span></a>
-                            <a class="btn-one-light ml-20" href="shop-single.html" data-animation="fadeInUp"
-                                data-delay="1.9s"><span>View Details</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                {{-- @foreach ($sliders as $k => $slide)
+            <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="slide-bg" data-background="{{ asset('storage/'.$slide->item->items[0]->content) }}"></div>
+                    <div class="slide-bg" data-background="{{ asset('themes/webpage/assets/images/banner/ad-banner1.jpg') }}"></div>
                     <div class="container">
                         <div class="banner-two__content">
-                            <h4 data-animation="fadeInUp" data-delay="1s"><img src="themes/webpage/assets/images/icon/fire.svg"
-                                    alt="icon"> GET <span class="primary-color">{{ $slide->item->items[1]->content }}</span> NOW</h4>
+                            <h4 data-animation="fadeInUp" data-delay="1s">
+                                <img src="themes/webpage/assets/images/icon/fire.svg" alt="icon"> 
+                                GET <span class="primary-color">20%</span> NOW
+                            </h4>
                             <h1 data-animation="fadeInUp" data-delay="1.3s">Find everything <br>
                                 for <span class="primary-color">vaping</span></h1>
                             <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">Sell globally in minutes
@@ -52,16 +25,14 @@
                                 <h3>$99.00</h3>
                             </div>
                             <div class="btn-wrp mt-65">
-                                <a href="shop.html" class="btn-one" data-animation="fadeInUp"
-                                    data-delay="1.8s"><span>Shop
-                                        Now</span></a>
-                                <a class="btn-one-light ml-20" href="shop-single.html" data-animation="fadeInUp"
-                                    data-delay="1.9s"><span>View Details</span></a>
+                                <a class="btn-one-light ml-20" 
+                                    href="" data-animation="fadeInUp"
+                                    data-delay="1.9s"><span>Más Información</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endforeach --}}
             </div>
         </div>
         <div class="banner-two__arry-btn">
@@ -72,10 +43,14 @@
     </section>
     <!-- Banner area end here -->
 
+    <!-- Product area start here -->
+    <x-products :products="$products" />
+    <!-- Product area end here -->
+    
     <!-- Category area start here -->
-    <x-category />
+    {{-- <x-category /> --}}
     <!-- Category area end here -->
-
+    <br><br>
     <!-- View area start here -->
     <section class="view-area">
         <div class="bg-image view__bg" data-background="themes/webpage/assets/images/bg/view-bg.jpg"></div>
@@ -93,11 +68,7 @@
                                 experie
                                 in every market. only a variety of vaping
                                 products</p>
-                            <a class="btn-two" href="shop-single.html"><span>Shop Now</span></a>
-                            <a class="off-btn" href="#0"><img class="mr-10" src="themes/webpage/assets/images/icon/fire.svg"
-                                    alt="icon"> GET
-                                <span class="primary-color">25%
-                                    OFF</span> NOW</a>
+                            <a class="btn-two" href="shop-single.html"><span>Más Información</span></a>
                         </div>
                     </div>
                 </div>
@@ -106,7 +77,7 @@
                         <div class="view__content">
                             <h3><a class="primary-hover" href="shop-single.html">new to vapeing?</a></h3>
                             <p>Whereas recognition of the inherent dignity</p>
-                            <a class="btn-two" href="shop-single.html"><span>Shop Now</span></a>
+                            <a class="btn-two" href="shop-single.html"><span>Más Información</span></a>
                         </div>
                         <div class="view__image">
                             <img src="themes/webpage/assets/images/view/view-image2.jpg" alt="image">
@@ -116,7 +87,7 @@
                         <div class="view__content">
                             <h3><a class="primary-hover" href="shop-single.html">Vap mode</a></h3>
                             <p>Whereas recognition of the inherent dignity</p>
-                            <a class="btn-two" href="shop-single.html"><span>Shop Now</span></a>
+                            <a class="btn-two" href="shop-single.html"><span>Más Información</span></a>
                         </div>
                         <div class="view__image">
                             <img src="themes/webpage/assets/images/view/view-image3.jpg" alt="image">
@@ -128,12 +99,9 @@
     </section>
     <!-- View area end here -->
 
-    <!-- Product area start here -->
-    <x-products :products="$products" />
-    <!-- Product area end here -->
 
     <!-- Discount area start here -->
-    <section class="discount-area bg-image" data-background="{{ asset('themes/webpage/assets/images/bg/discount-bg2.jpg') }}">
+    {{-- <section class="discount-area bg-image" data-background="{{ asset('themes/webpage/assets/images/bg/discount-bg2.jpg') }}">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -165,11 +133,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Discount area end here -->
-
+    <br><br>
     <!-- Get now area start here -->
-    <section class="get-now-area pt-130 pb-130">
+    {{-- <section class="get-now-area pt-130 pb-130">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6">
@@ -251,20 +219,24 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Get now area end here -->
 
     <!-- Text slider area start here -->
-    <div class="container">
+    {{-- <div class="container">
         <div class="bor-top pb-40"></div>
     </div>
     <div class="marquee-wrapper text-slider">
         <div class="marquee-inner to-left">
             <ul class="marqee-list d-flex">
                 <li class="marquee-item">
-                    E-Cigarettes <img src="themes/webpage/assets/images/icon/title-left.svg" alt="icon"> <span>Vape Pens</span>
+                    E-Cigarettes 
+                    <img src="themes/webpage/assets/images/icon/title-left.svg" alt="icon"> 
+                    <span>Vape Pens</span>
                     <img src="themes/webpage/assets/images/icon/title-left.svg" alt="icon">
-                    Vape Juice <img src="themes/webpage/assets/images/icon/title-left.svg" alt="icon"> <span>E-Cigarettes</span>
+                    Vape Juice 
+                    <img src="themes/webpage/assets/images/icon/title-left.svg" alt="icon"> 
+                    <span>E-Cigarettes</span>
                     <img src="themes/webpage/assets/images/icon/title-left.svg" alt="icon">
                     Vape Pens <img src="themes/webpage/assets/images/icon/title-left.svg" alt="icon"> <span>Vape Juice</span>
                     <img src="themes/webpage/assets/images/icon/title-left.svg" alt="icon">
@@ -277,8 +249,12 @@
     </div>
     <div class="container">
         <div class="bor-top pb-65"></div>
-    </div>
+    </div> --}}
     <!-- Text slider area end here -->
+
+    <!-- Brand area start here -->
+    <x-brand />
+    <!-- Brand area end here -->
 
     <!-- Gallery area start here -->
     <section class="gallery-area">
@@ -286,71 +262,17 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="gallery__item">
-                        <div class="off-tag">50% <br>
-                            off</div>
                         <div class="gallery__image image">
                             <img src="themes/webpage/assets/images/gallery/gallery-image1.jpg" alt="image">
                         </div>
                         <div class="gallery__content">
-                            <h3 class="mb-10"><a href="shop-2.html">best e-lequid</a></h3>
-                            <p>Best E liquids from our huge collection</p>
-                            <a href="shop-2.html" class="btn-two mt-25"><span>Shop Now</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="gallery__item">
-                        <div class="off-tag">50% <br>
-                            off</div>
-                        <div class="gallery__image image">
-                            <img src="themes/webpage/assets/images/gallery/gallery-image2.jpg" alt="image">
-                        </div>
-                        <div class="gallery__content">
-                            <h3 class="mb-10"><a href="shop-2.html">best vape flavours</a></h3>
-                            <p>Best E liquids from our huge collection</p>
-                            <a href="shop-2.html" class="btn-two mt-25"><span>Shop Now</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="gallery__item">
-                        <div class="off-tag">50% <br>
-                            off</div>
-                        <div class="gallery__image image">
-                            <img src="themes/webpage/assets/images/gallery/gallery-image3.jpg" alt="image">
-                        </div>
-                        <div class="gallery__content">
-                            <h3 class="mb-10"><a href="shop-2.html">Battery And Charger Kit</a></h3>
-                            <p>Best E liquids from our huge collection</p>
-                            <a href="shop-2.html" class="btn-two mt-25"><span>Shop Now</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="gallery__item">
-                        <div class="off-tag">50% <br>
-                            off</div>
-                        <div class="gallery__image image">
-                            <img src="themes/webpage/assets/images/gallery/gallery-image4.jpg" alt="image">
-                        </div>
-                        <div class="gallery__content">
-                            <h3 class="mb-10"><a href="shop-2.html">best vape tanks</a></h3>
-                            <p>Best E liquids from our huge collection</p>
-                            <a href="shop-2.html" class="btn-two mt-25"><span>Shop Now</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="gallery__item">
-                        <div class="off-tag">50% <br>
-                            off</div>
-                        <div class="gallery__image image">
-                            <img src="themes/webpage/assets/images/gallery/gallery-image5.jpg" alt="image">
-                        </div>
-                        <div class="gallery__content">
-                            <h3 class="mb-10"><a href="shop-2.html">POP Extra Strawberry</a></h3>
-                            <p>Best E liquids from our huge collection</p>
-                            <a href="shop-2.html" class="btn-two mt-25"><span>Shop Now</span></a>
+                            <h3 class="mb-10">
+                                <a href="">Mapex Horizon Serie 2025</a>
+                            </h3>
+                            <p>Dale una revisión a su extraordinario sonido</p>
+                            <a href="" class="btn-two mt-25">
+                                <span>Ver Ahora</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -359,9 +281,8 @@
     </section>
     <!-- Gallery area end here -->
 
-    <!-- Brand area start here -->
-    <x-brand />
-    <!-- Brand area end here -->
+    <br>
+
 
 
 @stop
