@@ -78,7 +78,7 @@
                                     <i class="fa-solid fa-star"></i>
                                 </div> --}}
                             </div>
-                            <a class="product__cart d-block bor-top" href="#0" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }} })">
+                            <a class="product__cart d-block bor-top" href="#0" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }}, quantity: 1 })">
                                 <i class="fa-regular fa-cart-shopping primary-color me-1"></i>
                                 <span>Agregar al carrito</span>
                             </a>

@@ -14,7 +14,7 @@
                     <span class="cart__icon">
                         <i class="fa-regular fa-cart-shopping" style="font-size: 18px;"></i>
                     </span>
-                    <a href="#0" class="c__one">
+                    <a href="{{ route('web_cart') }}" class="c__one">
                         <span id="totalCarritoWeb" title="Precio Total del Carrito">
                             S/ 0.00
                         </span>

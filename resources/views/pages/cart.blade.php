@@ -318,6 +318,7 @@ function realizarConsulta(ids) {
 function renderProducto(respuesta, i) {
 
     var cart = document.getElementById('cart');
+    var inputhidden = document.getElementById('input-hidden');
     if (cart != null) {
         var id = respuesta.id;
         var teacher = respuesta.teacher;
@@ -391,6 +392,10 @@ function renderProducto(respuesta, i) {
                                 </button>
                             </div>
                         </div>
+                `;
+                inputhidden.innerHTML += `
+                            <input type="hidden"  name="product_id[]" value="`+carrito[i].id+`">
+                            <input id="p_q_`+carrito[i].id+`" type="hidden" name="product_quantity[]" value="`+carrito[i].quantity+`">
                 `;
     }
 }
