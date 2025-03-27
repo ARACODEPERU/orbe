@@ -130,7 +130,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <a href="#0" class="d-block text-center btn-two mt-40">
+                                        <a href="#" class="d-block text-center btn-two mt-40" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }}, quantity: 1 })">
                                             <span>
                                                 <i class="fa-solid fa-basket-shopping pe-2"></i>
                                                 Agregar al Carrito

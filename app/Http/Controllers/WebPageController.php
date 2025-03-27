@@ -502,7 +502,12 @@ class WebPageController extends Controller
 
     public function cart()
     {
-        return view('pages.cart');
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
+        return view('pages.cart', compact('categories', 'subcategories'));
     }
 
     public function pay()

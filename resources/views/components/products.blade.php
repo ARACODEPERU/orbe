@@ -51,7 +51,7 @@
                         </div> --}}
                     </div>
                     <br>
-                    <a class="product__cart d-block bor-top" href="#0" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }} })"><i
+                    <a class="product__cart d-block bor-top" href="#0" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }}, quantity: 1 })"><i
                             class="fa-regular fa-cart-shopping primary-color me-1"></i>
                         <span>Agregar al Carrito</span>
                     </a>
