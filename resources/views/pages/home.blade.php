@@ -51,7 +51,8 @@
     {{-- <x-category /> --}}
     <!-- Category area end here -->
     <br><br>
-    <!-- View area start here -->
+
+    <!-- Services area start here -->
     <section class="view-area">
         <div class="bg-image view__bg" data-background="themes/webpage/assets/images/bg/view-bg.jpg"></div>
         <div class="container">
@@ -120,7 +121,7 @@
             </div>
         </div>
     </section>
-    <!-- View area end here -->
+    <!-- Services area end here -->
 
 
     <!-- Discount area start here -->
@@ -159,6 +160,7 @@
     </section> --}}
     <!-- Discount area end here -->
     <br><br>
+    
     <!-- Get now area start here -->
     {{-- <section class="get-now-area pt-130 pb-130">
         <div class="container">
@@ -279,7 +281,7 @@
     <x-brand />
     <!-- Brand area end here -->
 
-    <!-- Gallery area start here -->
+    <!-- Perfomance area start here -->
     <section class="gallery-area">
         <div class="swiper gallery__slider">
             <div class="swiper-wrapper">
@@ -302,7 +304,7 @@
             </div>
         </div>
     </section>
-    <!-- Gallery area end here -->
+    <!-- Perfomance area end here -->
 
     <br>
 
