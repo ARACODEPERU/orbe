@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Modules\CMS\Entities\CmsSection;
+use Modules\CMS\Entities\CmsSectionItem;
 use Modules\Onlineshop\Entities\OnliItem;
 use Modules\Academic\Entities\AcaCourse;
 use Modules\Academic\Entities\AcaCategoryCourse;
@@ -58,6 +59,8 @@ class WebPageController extends Controller
             )
             ->orderBy('cms_section_items.position')
             ->get();
+        
+        $perfomance = CmsSectionItem::with('item.items')->where('section_id', 5)->get();
 
 
         // return view('pages.home', compact('categories', 'subcategories', 'products'));
@@ -66,7 +69,8 @@ class WebPageController extends Controller
             'categories' => $categories,
             'subcategories' => $subcategories,
             'products' => $products,
-            'servicios' => $servicios
+            'servicios' => $servicios,
+            'perfomance' => $perfomance
         ]);
     }
 

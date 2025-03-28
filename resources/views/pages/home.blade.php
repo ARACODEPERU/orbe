@@ -285,22 +285,25 @@
     <section class="gallery-area">
         <div class="swiper gallery__slider">
             <div class="swiper-wrapper">
+                @foreach ($perfomance as $key => $item )
                 <div class="swiper-slide">
                     <div class="gallery__item">
                         <div class="gallery__image image">
-                            <img src="themes/webpage/assets/images/gallery/gallery-image1.jpg" alt="image">
+                            <img src="{{ $item->item->items[3]->content }}" alt="{{ $item->item->items[0]->content }}">
+                            {{-- <img src="themes/webpage/assets/images/gallery/gallery-image1.jpg" alt="image"> --}}
                         </div>
                         <div class="gallery__content">
                             <h3 class="mb-10">
-                                <a href="">Mapex Horizon Serie 2025</a>
+                                <a href="{{ $item->item->items[2]->content }}">{{ $item->item->items[0]->content }}</a>
                             </h3>
-                            <p>Dale una revisión a su extraordinario sonido</p>
-                            <a href="" class="btn-two mt-25">
+                            <p>{{ $item->item->items[1]->content }}</p>
+                            <a href="{{ $item->item->items[2]->content }}" class="btn-two mt-25">
                                 <span>Ver Ahora</span>
                             </a>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
