@@ -289,7 +289,7 @@
                 <div class="swiper-slide">
                     <div class="gallery__item">
                         <div class="gallery__image image">
-                            <img src="{{ $item->item->items[3]->content }}" alt="{{ $item->item->items[0]->content }}">
+                            <img src="{{ asset('storage/'.$item->item->items[3]->content)  }}" alt="{{ $item->item->items[0]->content }}">
                             {{-- <img src="themes/webpage/assets/images/gallery/gallery-image1.jpg" alt="image"> --}}
                         </div>
                         <div class="gallery__content">
