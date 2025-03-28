@@ -58,9 +58,6 @@
         @yield('content')
     </main>
 
-    <!-- Footer area start here -->
-    <x-footer />
-    <!-- Footer area end here -->
 
     <!-- Back to top area start here -->
     <div class="scroll-up">

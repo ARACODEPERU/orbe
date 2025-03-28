@@ -311,6 +311,9 @@
 
     <br>
     
+    <!-- Footer area start here -->
+    <x-footer />
+    <!-- Footer area end here -->
 
 
 @stop
