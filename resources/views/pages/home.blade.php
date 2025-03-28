@@ -294,10 +294,10 @@
                         </div>
                         <div class="gallery__content">
                             <h3 class="mb-10">
-                                <a href="{{ $item->item->items[2]->content }}">{{ $item->item->items[0]->content }}</a>
+                                <a href="{{ $item->item->items[2]->content }}" target="_blank">{{ $item->item->items[0]->content }}</a>
                             </h3>
                             <p>{{ $item->item->items[1]->content }}</p>
-                            <a href="{{ $item->item->items[2]->content }}" class="btn-two mt-25">
+                            <a href="{{ $item->item->items[2]->content }}" target="_blank" class="btn-two mt-25">
                                 <span>Ver Ahora</span>
                             </a>
                         </div>
