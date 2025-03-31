@@ -36,9 +36,9 @@ Route::get('/contacto', [WebPageController::class, 'contact'])->name('web_contac
 
 // SUPPORT
 Route::get('/politicas-de-privacidad', [WebPageController::class, 'privacy'])->name('web_privacy');
-Route::get('/preguntas-frecuentes', [WebPageController::class, 'preguntas'])->name('web_preguntas_frecuentes');
+// Route::get('/preguntas-frecuentes', [WebPageController::class, 'preguntas'])->name('web_preguntas_frecuentes');
 Route::get('/libro-de-reclamaciones', [WebPageController::class, 'claims'])->name('web_claims');
-Route::post('/send-claim',                  [WebPageController::class, 'send_claim'])->name('send_claim');
+Route::post('/send-claim',   [WebPageController::class, 'send_claim'])->name('send_claim');
 
 
 // Tienda en Linea
@@ -48,6 +48,10 @@ Route::get('/productos/{category_id?}', [WebPageController::class, 'products_cat
 Route::get('/producto-descripcion/{id}', [WebPageController::class, 'prodescription'])->name('web_pro_description');
 Route::get('/carrito', [WebPageController::class, 'cart'])->name('web_cart');
 Route::get('/pagar', [WebPageController::class, 'pay'])->name('web_pay');
+
+
+// E-MAIL //
+Route::get('/e-libro-de-reclamaciones', [WebPageController::class, 'eclaims'])->name('web_e_claims');
 
 
 //////mensajes de whatsapp///////

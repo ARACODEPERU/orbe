@@ -536,6 +536,10 @@ class WebPageController extends Controller
         return view('pages.complaints-book', compact('categories', 'subcategories'));
     }
     
+    public function eclaims()
+    {
+        return view('emails/e_complaints_book');
+    }
 
     public function cart()
     {
@@ -803,6 +807,9 @@ class WebPageController extends Controller
             'person' => $person,
         ]);
     }
+
+ 
+
 
     private function enviar_correo_con_cursos($sale_id)
     {
