@@ -18,7 +18,7 @@
                         <div class="footer__item">
                             <h4 class="footer-title">Legal :</h4>
                             <ul>
-                                <li><a href=""><span></span>Politicas de Privacidad</a></li>
+                                <li><a href="{{ route('web_privacy') }}"><span></span>Politicas de Privacidad</a></li>
                                 <li><a href=""><span></span>Libro de Reclamaciones</a></li>
                             </ul>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="footer__item">
                             <h4 class="footer-title">Link :</h4>
                             <ul>
-                                <li><a href=""><span></span>Intranet</a></li>
+                                <li><a href="{{ route('dashboard') }}"><span></span>Intranet</a></li>
                                 <li><a href=""><span></span>WebMail</a></li>
                             </ul>
                         </div>
@@ -51,13 +51,10 @@
                 </div>
             </div>
             <div class="footer__copy-text pt-50 pb-50">
-                <a href="index.html" class="logo d-block">
-                    <img src="themes/webpage/assets/images/logo/logo.svg" alt="logo">
+                <a href="{{ route('index_main') }}" class="logo d-block">
+                    <img src="{{ asset('themes/webpage/assets/images/logo/logo.svg') }}" alt="logo">
                 </a>
-                <p>&copy; Copyright 2025 <a href="#0" class="primary-hover">Orbe</a> Todos los derechos reservados | Desarrollado por <a href="">Aracode Smarth Solutión</a></p>
-                <a href="#0" class="payment d-block image">
-                    <img src="themes/webpage/assets/images/icon/payment.png" alt="icon">
-                </a>
+                <p>&copy; Copyright 2025 <a href="" class="primary-hover">Orbe</a> Todos los derechos reservados | Desarrollado por <a href="">Aracode Smarth Solutión</a></p>
             </div>
         </div>
     </footer>

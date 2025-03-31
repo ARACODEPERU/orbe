@@ -475,6 +475,18 @@ class WebPageController extends Controller
         return view('pages.contact', compact('categories', 'subcategories'));
     }
 
+    
+
+    public function privacy()
+    {
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
+        return view('pages.privacy-policies', compact('categories', 'subcategories'));
+    }
+
     public function contacto()
     {
         $banner = CmsSection::where('component_id', 'nosotros_banner_area_11')  //siempre cambiar el id del componente
@@ -668,24 +680,6 @@ class WebPageController extends Controller
         return view('pages.gracias');
     }
 
-
-    public function privacidad()
-    {
-
-        $banner = CmsSection::where('component_id', 'nosotros_banner_area_11')  //siempre cambiar el id del componente
-            ->join('cms_section_items', 'section_id', 'cms_sections.id')
-            ->join('cms_items', 'cms_section_items.item_id', 'cms_items.id')
-            ->select(
-                'cms_items.content',
-                'cms_section_items.position'
-            )
-            ->orderBy('cms_section_items.position')
-            ->first();
-
-        return view('pages.politicas-de-privacidad', [
-            'banner' => $banner
-        ]);
-    }
 
     public function construction()
     {

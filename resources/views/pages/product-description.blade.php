@@ -52,7 +52,7 @@
                                         <div class="swiper-slide slide-smoll">
                                             <img src="{{ $product->image }}" alt="image">
                                         </div>
-                                        <div class="swiper-slide slide-smoll">
+                                        {{-- <div class="swiper-slide slide-smoll">
                                             <img src="{{ asset('themes/webpage/assets/images/shop/02.jpg') }}" alt="image">
                                         </div>
                                         <div class="swiper-slide slide-smoll">
@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="swiper-slide slide-smoll">
                                             <img src="{{ asset('themes/webpage/assets/images/shop/04.jpg') }}" alt="image">
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     {!!$product->description!!}
                                 </p>
                             </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-lg-8">
                                     <div class="details-area">
                                         <div class="category flex-wrap mt-4 d-flex py-3 bor-top bor-bottom">
@@ -106,7 +106,7 @@
                                             <span class="px-2">|</span>
                                             <a href="#0" class="primary-hover">Audio</a>
                                         </div>
-                                        {{-- <div class="d-flex flex-wrap align-items-center py-3 bor-bottom">
+                                        <div class="d-flex flex-wrap align-items-center py-3 bor-bottom">
                                             <h4 class="pe-3">Share:</h4>
                                             <div class="social-media">
                                                 <a href="#" class="mx-2 primary-color secondary-hover"><i
@@ -120,7 +120,7 @@
                                                 <a href="#" class="mx-2 primary-color secondary-hover"><i
                                                         class="fa-brands fa-pinterest-p"></i></a>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                         <div class="cart-wrp py-4">
                                             <div class="cart-quantity">
                                                 <form id='myform' method='POST' class='quantity' action='#'>
@@ -138,7 +138,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

@@ -34,13 +34,16 @@ Route::get('/home', [WebPageController::class, 'index'])->name('index_main');
 Route::get('/nosotros', [WebPageController::class, 'about'])->name('web_about');
 Route::get('/contacto', [WebPageController::class, 'contact'])->name('web_contact');
 
+Route::get('/politicas-de-privacidad', [WebPageController::class, 'privacy'])->name('web_privacy');
+
 // Tienda en Linea
 Route::get('/categorias', [WebPageController::class, 'categories'])->name('web_categories');
-//Route::get('/productos', [WebPageController::class, 'products'])->name('web_products');
+// Route::get('/productos', [WebPageController::class, 'products'])->name('web_products');
 Route::get('/productos/{category_id?}', [WebPageController::class, 'products_category'])->name('web_products_with_category');
 Route::get('/producto-descripcion/{id}', [WebPageController::class, 'prodescription'])->name('web_pro_description');
 Route::get('/carrito', [WebPageController::class, 'cart'])->name('web_cart');
 Route::get('/pagar', [WebPageController::class, 'pay'])->name('web_pay');
+
 
 //////mensajes de whatsapp///////
 Route::get('/ask/product/{id}', [LandingController::class, 'redirectToWhatsApp'])->name('whatsapp_send');
