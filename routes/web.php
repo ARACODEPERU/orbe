@@ -34,7 +34,12 @@ Route::get('/home', [WebPageController::class, 'index'])->name('index_main');
 Route::get('/nosotros', [WebPageController::class, 'about'])->name('web_about');
 Route::get('/contacto', [WebPageController::class, 'contact'])->name('web_contact');
 
+// SUPPORT
 Route::get('/politicas-de-privacidad', [WebPageController::class, 'privacy'])->name('web_privacy');
+Route::get('/preguntas-frecuentes', [WebPageController::class, 'preguntas'])->name('web_preguntas_frecuentes');
+Route::get('/libro-de-reclamaciones', [WebPageController::class, 'claims'])->name('web_claims');
+Route::post('/send-claim',                  [WebPageController::class, 'send_claim'])->name('send_claim');
+
 
 // Tienda en Linea
 Route::get('/categorias', [WebPageController::class, 'categories'])->name('web_categories');

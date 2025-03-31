@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Page banner area start here -->
-<section class="page-banner bg-image pt-130 pb-130" data-background="assets/images/banner/inner-banner.jpg">
+<section class="page-banner bg-image pt-80 pb-80" data-background="{{ asset('themes/webpage/assets/images/banner/inner-banner.jpg') }}">
     <div class="container">
         <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">
             Contactanos
@@ -20,7 +20,7 @@
 <!-- Page banner area end here -->
 
 <!-- Contact form area start here -->
-<section class="contact pt-130 pb-130">
+<section class="contact pt-80 pb-80">
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-6">
@@ -79,5 +79,8 @@
 </div> --}}
 <!-- Contact map area end here -->
 
+<!-- Footer area start here -->
+<x-footer />
+<!-- Footer area end here -->
 
 @stop

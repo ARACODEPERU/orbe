@@ -8,9 +8,9 @@
                         <div class="footer__item">
                             <h4 class="footer-title">Navegar :</h4>
                             <ul>
-                                <li><a href=""><span></span>Home</a></li>
+                                <li><a href="{{ route('index_main') }}"><span></span>Home</a></li>
                                 <li><a href=""><span></span>Nosotros</a></li>
-                                <li><a href=""><span></span>Contactanos</a></li>
+                                <li><a href="{{ route('web_contact') }}"><span></span>Contactanos</a></li>
                             </ul>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                             <h4 class="footer-title">Legal :</h4>
                             <ul>
                                 <li><a href="{{ route('web_privacy') }}"><span></span>Politicas de Privacidad</a></li>
-                                <li><a href=""><span></span>Libro de Reclamaciones</a></li>
+                                <li><a href="{{ route('web_claims') }}"><span></span>Libro de Reclamaciones</a></li>
                             </ul>
                         </div>
                     </div>
