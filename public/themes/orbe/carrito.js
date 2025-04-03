@@ -377,6 +377,7 @@ function cargarContadorCarrito() {
     carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     actualizarContador(carrito);
+
 }
 // Actualizar el valor del contador
 function actualizarContador(carrito) {
@@ -394,13 +395,14 @@ function actualizarContador(carrito) {
         contadorCarritoWeb.removeAttribute("hidden"); // Mostrar el contador
         var total = 0;
         for (let index = 0; index < carrito.length; index++) {
-            console.log(carrito[index].precio);
+
             total += carrito[index].precio*carrito[index].quantity;
+
 
         }
         totalCarritoWeb.innerHTML = total.toFixed(2);
     }
-    console.log(valor);
+
     //contadorCarritoMovil.innerHTML = valor;
     contadorCarritoWeb.innerHTML = valor;
 }

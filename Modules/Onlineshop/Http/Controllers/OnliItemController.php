@@ -413,7 +413,10 @@ class OnliItemController extends Controller
         //     ->get();
 
          //------------------------------ PRODUCTOS --------------------
-         $items = OnliItem::with('product')->whereIn('id', $ids)->get();
+         $items = OnliItem::with('product')
+                ->whereIn('id', $ids)
+                ->orderBy('id', 'asc')
+                ->get();
 
         $preference_id = null;
         // Verificar si se encontró el ítem

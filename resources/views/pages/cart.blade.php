@@ -41,7 +41,7 @@
                             <div class="totals">
                                 <div class="totals-item theme-color float-end mt-20">
                                     <span class="fw-bold text-uppercase py-2">cart total =</span>
-                                    <div class="totals-value d-inline py-2 pe-2" id="cart-subtotal">399.97</div>
+                                    <div class="totals-value d-inline py-2 pe-2" id="totalid">399.97</div>
                                 </div>
                             </div>
 
@@ -49,75 +49,8 @@
                         <!-- shopping-cart-mobile -->
                         <div class="shopping-cart mobile-view bor sub-bg">
 
-                            <div class="product p-4 bor-top bor-bottom">
-                                <div class="product-details d-flex align-items-center">
-                                    <img src="{{ asset('themes/webpage/assets/images/shop/01.jpg') }}" alt="image">
-                                    <h4 class="ps-4 text-capitalize">VortexVape</h4>
-                                </div>
-                                <div class="product-price">12.99</div>
-                                <div class="product-quantity">
-                                    <input type="number" value="2" min="1">
-                                </div>
-                                <div class="product-line-price">25.98</div>
-                                <div class="product-removal">
-                                    <button class="remove-product">
-                                        <i class="fa-solid fa-x heading-color"></i>
-                                    </button>
-                                </div>
-                            </div>
 
-                            <div class="product p-4 bor-bottom">
-                                <div class="product-details d-flex align-items-center">
-                                    <img src="{{ asset('themes/webpage/assets/images/shop/02.jpg') }}" alt="image">
-                                    <h4 class="ps-4 text-capitalize">EnigmaVapor</h4>
-                                </div>
-                                <div class="product-price">50.00</div>
-                                <div class="product-quantity">
-                                    <input type="number" value="1" min="1">
-                                </div>
-
-                                <div class="product-line-price">50.00</div>
-                                <div class="product-removal">
-                                    <button class="remove-product">
-                                        <i class="fa-solid fa-x heading-color"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product p-4 bor-bottom">
-                                <div class="product-details d-flex align-items-center">
-                                    <img src="{{ asset('themes/webpage/assets/images/shop/03.jpg') }}" alt="image">
-                                    <h4 class="ps-4 text-capitalize">ZenithVapor</h4>
-                                </div>
-                                <div class="product-price">45.99</div>
-                                <div class="product-quantity">
-                                    <input type="number" value="1" min="1">
-                                </div>
-
-                                <div class="product-line-price">45.99</div>
-                                <div class="product-removal">
-                                    <button class="remove-product">
-                                        <i class="fa-solid fa-x heading-color"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product p-4 bor-bottom">
-                                <div class="product-details d-flex align-items-center">
-                                    <img src="{{ asset('themes/webpage/assets/images/shop/04.jpg') }}" alt="image">
-                                    <h4 class="ps-4 text-capitalize">RadiantVape</h4>
-                                </div>
-                                <div class="product-price">99.99</div>
-                                <div class="product-quantity">
-                                    <input type="number" value="2" min="1">
-                                </div>
-
-                                <div class="product-line-price">199.99</div>
-                                <div class="product-removal">
-                                    <button class="remove-product">
-                                        <i class="fa-solid fa-x heading-color"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product p-4">
+                            {{-- <div class="product p-4">
                                 <div class="product-details d-flex align-items-center">
                                     <img src="{{ asset('themes/webpage/assets/images/shop/02.jpg') }}" alt="image">
                                     <h4 class="ps-4 text-capitalize">SerenitySmoke</h4>
@@ -132,12 +65,12 @@
                                         <i class="fa-solid fa-x heading-color"></i>
                                     </button>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="totals">
                                 <div class="totals-item theme-color float-end">
                                     <span class="fw-bold text-uppercase py-2">cart total =</span>
-                                    <div class="totals-value d-inline py-2 pe-2">399.97</div>
+                                    <div id="totalid" class="totals-value d-inline py-2 pe-2">399.97</div>
                                 </div>
                             </div>
                         </div>
@@ -175,25 +108,27 @@
         <!-- cart page area end here -->
 
         <script>
-            function quantity(index, masmen, price) {
+           function quantity(index, masmen, price) {
                 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                index = parseInt(index); // Convertir el índice a un número entero
+
                 if (masmen == 1) {
                     carrito[index].quantity = parseInt(carrito[index].quantity) + 1;
+                } else if (masmen == 0 && carrito[index].quantity > 1) {
+                    carrito[index].quantity = parseInt(carrito[index].quantity) - 1;
                 }
-                if (masmen == 0) {
-                    if (carrito[index].quantity > 1) {
-                        carrito[index].quantity = parseInt(carrito[index].quantity) - 1;
-                    }
-                }
-                document.getElementById("p_q_" + carrito[index].id).value = carrito[index]
-                    .quantity; //cambiar valor en el los inputHidden del form pay
+
+                //console.log("carrito en quantity: ", carrito);
+                document.getElementById("p_q_" + carrito[index].id).value = carrito[index].quantity;
                 localStorage.setItem('carrito', JSON.stringify(carrito));
-                carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-                console.log(carrito[index].quantity);
-                console.log(carrito[index].quantity * price);
+
+                //console.log(carrito[index].quantity);
+                //console.log(carrito[index].quantity * price);
+
                 document.getElementById(index + "qty").value = carrito[index].quantity;
                 let tempSubTotal = carrito[index].quantity * price;
                 document.getElementById(index + "subTotal").innerHTML = "S/ " + formatearNumero(tempSubTotal);
+                actualizarContador(carrito);
                 getTotal();
             }
         </script>
@@ -302,13 +237,13 @@ function realizarConsulta(ids) {
                 btnCrear = document.getElementById("btn-crear-cuenta");
                 btnCrear.removeAttribute("disabled");
             } catch (error) {
-                console.log("No se encontró el botón BTN CREAR");
+                //console.log("No se encontró el botón BTN CREAR");
             }
 
         },
         error: function(xhr) {
             // Ocurrió un error al realizar la consulta
-            console.log(xhr.responseText);
+            //console.log(xhr.responseText);
             // Aquí puedes manejar el error de alguna manera
         }
     });
@@ -332,6 +267,18 @@ function renderProducto(respuesta, i) {
         var url_descripcion_programa = "/curso-descripcion/"+id; // esta ruta deberá corregirse si se cambia el el get de la RUTA :S
 
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        // Ordenar el arreglo carrito por el id
+        carrito.sort((a, b) => a.id - b.id);
+
+        // Convertir el arreglo ordenado a formato JSON
+        let carritoJSON = JSON.stringify(carrito);
+
+        // Guardar el arreglo ordenado de nuevo en el localStorage
+        localStorage.setItem('carrito', carritoJSON);
+
+        //console.log("carrito en renderProducto->"+i+"<-: ", carrito, carrito[i], name, price);
+
         /*
        cart.innerHTML += `
     <tr class="border-y border-transparent border-b-slate-200 dark:border-b-navy-500" id="` + id + `_pc">
@@ -380,11 +327,11 @@ function renderProducto(respuesta, i) {
                             <div class="product-quantity">
                                 <div class="plus-minus">
                                 <a class="dec qtybutton" onclick="quantity(` + i + `, 0, `+price+`)">-</a>
-                                <input type="number" id="`+i+`qty" value="`+carrito[i].quantity+`" min="1">
+                                <input class="quan" id="`+i+`qty" value="`+carrito[i].quantity+`" min="1" oninput="this.value = this.value.replace(/[^0-9]/g, '')" disabled >
                                 <a class="inc qtybutton" onclick="quantity(` + i + `, 1, `+price+`)">+</a>
                                 </div>
                             </div>
-                            <div class="product-line-price">`+(price*carrito[i].quantity).toFixed(2)+`</div>
+                            <div id="`+i+`subTotal" class="product-line-price">S/ `+(price*carrito[i].quantity).toFixed(2)+`</div>
                             <div class="product-removal">
                                 <button class="remove-product" onclick="eliminarproducto({ id: ` + id + `, nombre: '` +
                           name + `', precio: ` + price + ` });">
@@ -397,15 +344,16 @@ function renderProducto(respuesta, i) {
                             <input type="hidden"  name="product_id[]" value="`+carrito[i].id+`">
                             <input id="p_q_`+carrito[i].id+`" type="hidden" name="product_quantity[]" value="`+carrito[i].quantity+`">
                 `;
+
     }
 }
 
 function confirmSubmit(event) {
 event.preventDefault(); // Evita que el formulario se envíe automáticamente
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-console.log(carrito);
+//console.log(carrito);
 if(carrito.length>0){
-console.log(event);
+//console.log(event);
 event.target.form.submit();
 }else
 alert("No has elegido ningún curso");
@@ -421,4 +369,13 @@ document.getElementById("CartForm").submit();
 
 
         </script>
+        <style>
+            .quan {
+            background-color: #fff; /* Color de fondo */
+            color: #000; /* Color del texto */
+            cursor: default; /* Cursor predeterminado */
+            pointer-events: none; /* Deshabilita eventos de puntero */
+            opacity: 1; /* Opacidad completa */
+            }
+        </style>
 @stop
