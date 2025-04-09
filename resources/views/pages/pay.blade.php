@@ -10,8 +10,8 @@
                 </h2>
                 <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
                     <a href="" class="primary-hover">
-                        <i class="fa-solid fa-house me-1"></i> 
-                            Home 
+                        <i class="fa-solid fa-house me-1"></i>
+                            Home
                         <i class="fa-regular text-white fa-angle-right"></i>
                     </a>
                     <span>Pagar</span>
@@ -32,29 +32,31 @@
                                 <label class="product-quantity">Cantidad</label>
                                 <label class="product-line-price">Total</label>
                             </div>
-        
-                            <div class="product p-4 bor-top bor-bottom d-flex justify-content-between align-items-center">
-                                <div class="product-details d-flex align-items-center">
-                                    <img src="themes/webpage/assets/images/shop/01.jpg" alt="image">
-                                    <h4 class="ps-4 text-capitalize">NebulaVape</h4>
+
+                            @foreach ($products as $product)
+                                <div class="product p-4 bor-top bor-bottom d-flex justify-content-between align-items-center">
+                                    <div class="product-details d-flex align-items-center">
+                                        <img src="{{ $product->image }}" alt="image">
+                                        <h4 class="ps-4 text-capitalize">{{ $product->name }}</h4>
+                                    </div>
+                                    <div class="product-quantity" style="text-align: center;">
+                                        <p>{{ $product->quantity }}</p>
+                                    </div>
+                                    <div class="product-line-price">S/ {{ $product->price*$product->quantity }}</div>
                                 </div>
-                                <div class="product-quantity" style="text-align: center;">
-                                    <p>2</p>
-                                </div>
-                                <div class="product-line-price">S/ 25.98</div>
-                            </div>
-        
+                            @endforeach
+
                             <div class="totals">
                                 <div class="totals-item theme-color float-end mt-20">
                                     <span class="fw-bold text-uppercase py-2">cart total =</span>
-                                    <div class="totals-value d-inline py-2 pe-2" id="cart-subtotal">399.97</div>
+                                    <div class="totals-value d-inline py-2 pe-2" id="cart-subtotal">{{ $total }}</div>
                                 </div>
                             </div>
-        
+
                         </div>
                         <!-- shopping-cart-mobile -->
                         <div class="shopping-cart mobile-view bor sub-bg">
-        
+
                             <div class="product p-4 bor-top bor-bottom">
                                 <div class="product-details d-flex align-items-center">
                                     <img src="{{ asset('themes/webpage/assets/images/shop/01.jpg') }}" alt="image">
@@ -70,7 +72,7 @@
                                     </button>
                                 </div>
                             </div>
-        
+
                             <div class="product p-4 bor-bottom">
                                 <div class="product-details d-flex align-items-center">
                                     <img src="{{ asset('themes/webpage/assets/images/shop/02.jpg') }}" alt="image">
@@ -79,7 +81,7 @@
                                 <div class="product-quantity">
                                     <input type="number" value="1" min="1">
                                 </div>
-        
+
                                 <div class="product-line-price">50.00</div>
                                 <div class="product-removal">
                                     <button class="remove-product">
@@ -95,7 +97,7 @@
                                 <div class="product-quantity">
                                     <input type="number" value="1" min="1">
                                 </div>
-        
+
                                 <div class="product-line-price">45.99</div>
                                 <div class="product-removal">
                                     <button class="remove-product">
@@ -133,7 +135,7 @@
                                     </button>
                                 </div>
                             </div>
-        
+
                             <div class="totals">
                                 <div class="totals-item theme-color float-end">
                                     <span class="fw-bold text-uppercase py-2">cart total =</span>
@@ -153,7 +155,7 @@
                         <br>
                         <div class="checkout__item-left sub-bg">
                             Aqui el formulario de mercado Pago
-                            
+
                         </div>
                     </div>
                 </div>

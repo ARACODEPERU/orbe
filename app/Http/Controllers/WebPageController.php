@@ -553,14 +553,33 @@ class WebPageController extends Controller
 
     public function pay(Request $request)
     {
-        $products = OnliItem::whereIn('id', $request->ids)->get();
-        dd($products);
+        // Obtener los elementos de la base de datos
+        $products = OnliItem::whereIn('id', $request->product_id)->get();
+
+        // Obtener la cantidad de productos del arreglo $request->product_quantity
+        $productQuantities = $request->product_quantity;
+
+        // Iterar sobre cada producto y agregar el atributo 'quantity' dinámicamente
+        $x=0;
+        $total=0;
+        $products->each(function ($product) use ($productQuantities, &$x, &$total) {
+            // Verificar si existe una cantidad para el producto en el arreglo
+            if (isset($productQuantities[$x])) {
+                // Agregar el atributo 'quantity' al modelo dinámicamente
+                $product->setAttribute('quantity', $productQuantities[$x]);
+                $total+=$product->price*$product->quantity;
+            } else {
+                // Puedes establecer un valor por defecto si no se encuentra la cantidad
+                $product->setAttribute('quantity', 0);
+            }
+        $x++;
+        });
         $categories = SaleProductCategory::whereNull('category_id')->get();
         $subcategories = [];
         foreach ($categories as $key => $category) {
             $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
         }
-        return view('pages.pay', compact('categories', 'subcategories'));
+        return view('pages.pay', compact('categories', 'subcategories', 'products', 'total'));
     }
 
     public function pagar(Request $request)
