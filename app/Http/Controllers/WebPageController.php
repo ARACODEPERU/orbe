@@ -59,7 +59,7 @@ class WebPageController extends Controller
             )
             ->orderBy('cms_section_items.position')
             ->get();
-        
+
         $perfomance = CmsSectionItem::with('item.items')->where('section_id', 5)->get();
 
 
@@ -503,7 +503,7 @@ class WebPageController extends Controller
             'title' => $title
         ]);
     }
-    
+
 
     public function privacy()
     {
@@ -535,7 +535,7 @@ class WebPageController extends Controller
 
         return view('pages.complaints-book', compact('categories', 'subcategories'));
     }
-    
+
     public function eclaims()
     {
         return view('emails/e_complaints_book');
@@ -551,9 +551,16 @@ class WebPageController extends Controller
         return view('pages.cart', compact('categories', 'subcategories'));
     }
 
-    public function pay()
+    public function pay(Request $request)
     {
-        return view('pages.pay');
+        $products = OnliItem::whereIn('id', $request->ids)->get();
+        dd($products);
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
+        return view('pages.pay', compact('categories', 'subcategories'));
     }
 
     public function pagar(Request $request)
@@ -808,7 +815,7 @@ class WebPageController extends Controller
         ]);
     }
 
- 
+
 
 
     private function enviar_correo_con_cursos($sale_id)

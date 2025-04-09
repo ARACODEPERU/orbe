@@ -368,7 +368,7 @@ function getTotal() {
         for (let i = 0; i < carritoTemp.length; i++) {
             total += carritoTemp[i].precio*carritoTemp[i].quantity;
         }
-        document.getElementById("totalid").textContent = "S/. " + total + ".00";
+        document.getElementById("totalid").textContent = "S/. " + formatearNumero(total);
 
     }
 }
@@ -400,7 +400,7 @@ function actualizarContador(carrito) {
 
 
         }
-        totalCarritoWeb.innerHTML = total.toFixed(2);
+        totalCarritoWeb.innerHTML = formatearNumero(total.toFixed(2));
     }
 
     //contadorCarritoMovil.innerHTML = valor;

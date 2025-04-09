@@ -67,37 +67,35 @@
                                 </div>
                             </div> --}}
 
-                            <div class="totals">
+                            {{-- <div class="totals">
                                 <div class="totals-item theme-color float-end">
                                     <span class="fw-bold text-uppercase py-2">cart total =</span>
                                     <div id="totalid" class="totals-value d-inline py-2 pe-2">399.97</div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
-                    <form action="" id ="CartForm">
+                    <form method="post" action="{{ route('web_pay') }}" id ="CartForm">
+                        @csrf
                         <div class="col-md-3">
                             <div class="checkout__item-left sub-bg">
                                 <h3 class="mb-40">Datos del comprador</h3>
 
-                                <form action="{{ route('web_pay') }}" method="post">
-                                    @csrf
                                 <div id="input-hidden">
-                                            <input type="hidden" name="product_id[]">
+                                            {{-- <input type="hidden" name="product_id[]">
                                             <input type="hidden" name="product_name[]">
                                             <input type="hidden" name="product_category_id[]">
                                             <input type="hidden" name="product_quantity[]">
-                                            <input type="hidden" name="product_price[]">
+                                            <input type="hidden" name="product_price[]"> --}}
                                 </div>
                                 <label class="mb-10" for="names">Tu nombre *</label>
                                 <input class="mb-20" id="names" name="names" type="text">
                                 <label class="mb-10" for="phone">Teléfono *</label>
                                 <input class="mb-20" name="phone" id="phone" type="text">
 
-                                <b type="submit" style="width: 100%;" href="" class="btn-one g-recaptcha" data-animation="fadeInUp" data-delay="1.8s" style="animation-delay: 1.8s;"  id="btn-crear-cuenta">
+                                <button type="submit" style="width: 100%;" href="" class="btn-one g-recaptcha" data-animation="fadeInUp" data-delay="1.8s" style="animation-delay: 1.8s;"  id="btn-crear-cuenta">
                                     <span>Comprar</span>
-                                </b>
-                                </form>
+                                </button>
 
                             </div>
                         </div>
@@ -169,7 +167,7 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="{{ asset('themes/orbe/shop_cart.js') }}"></script>
-        <script src="https://www.google.com/recaptcha/api.js?render=<?php echo config('services.recaptcha.site_key'); ?>"></script>
+        {{-- <script src="https://www.google.com/recaptcha/api.js?render=<?php echo config('services.recaptcha.site_key'); ?>"></script>
         <script>
             document.getElementById('CartForm').addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -180,7 +178,7 @@
                     });
                 });
             });
-        </script>
+        </script> --}}
         <script>
 
     cargarItemsCarritoBD();
@@ -323,7 +321,7 @@ function renderProducto(respuesta, i) {
                                 <img src="` + image + `" alt="image">
                                 <h4 class="ps-4 text-capitalize">` + name + `</h4>
                             </div>
-                            <div class="product-price">` + price + `</div>
+                            <div class="product-price">` + formatearNumero(Number(price).toFixed(2)) + `</div>
                             <div class="product-quantity">
                                 <div class="plus-minus">
                                 <a class="dec qtybutton" onclick="quantity(` + i + `, 0, `+price+`)">-</a>
@@ -331,7 +329,7 @@ function renderProducto(respuesta, i) {
                                 <a class="inc qtybutton" onclick="quantity(` + i + `, 1, `+price+`)">+</a>
                                 </div>
                             </div>
-                            <div id="`+i+`subTotal" class="product-line-price">S/ `+(price*carrito[i].quantity).toFixed(2)+`</div>
+                            <div id="`+i+`subTotal" class="product-line-price">S/ `+formatearNumero((price*carrito[i].quantity).toFixed(2))+`</div>
                             <div class="product-removal">
                                 <button class="remove-product" onclick="eliminarproducto({ id: ` + id + `, nombre: '` +
                           name + `', precio: ` + price + ` });">
