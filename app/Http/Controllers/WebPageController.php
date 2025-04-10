@@ -553,20 +553,27 @@ class WebPageController extends Controller
 
     public function pay(Request $request)
     {
+        //dd($request->all());
+        $names = $request->names;
+        $phone = $request->phone;
+        $product_id = $request->product_id;
+
         // Obtener los elementos de la base de datos
-        $products = OnliItem::whereIn('id', $request->product_id)->get();
+        $products = OnliItem::whereIn('id', $request->product_id)->orderBy('id')->get();
+        $product_prices = $products->pluck('price')->toArray();
+        $product_names = $products->pluck('name')->toArray();
 
         // Obtener la cantidad de productos del arreglo $request->product_quantity
-        $productQuantities = $request->product_quantity;
+        $product_quantity = $request->product_quantity;
 
         // Iterar sobre cada producto y agregar el atributo 'quantity' dinámicamente
         $x=0;
         $total=0;
-        $products->each(function ($product) use ($productQuantities, &$x, &$total) {
+        $products->each(function ($product) use ($product_quantity, &$x, &$total) {
             // Verificar si existe una cantidad para el producto en el arreglo
-            if (isset($productQuantities[$x])) {
+            if (isset($product_quantity[$x])) {
                 // Agregar el atributo 'quantity' al modelo dinámicamente
-                $product->setAttribute('quantity', $productQuantities[$x]);
+                $product->setAttribute('quantity', $product_quantity[$x]);
                 $total+=$product->price*$product->quantity;
             } else {
                 // Puedes establecer un valor por defecto si no se encuentra la cantidad
@@ -579,127 +586,106 @@ class WebPageController extends Controller
         foreach ($categories as $key => $category) {
             $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
         }
-        return view('pages.pay', compact('categories', 'subcategories', 'products', 'total'));
+        return view('pages.pay', compact('categories', 'subcategories', 'products', 'total', 'names', 'product_id', 'product_quantity', 'phone', 'product_prices', 'product_names'));
     }
 
     public function pagar(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'names' => 'required|string|max:255',
-            'app' => 'required|string|max:255',
-            'apm' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
-            'dni' => 'required|numeric|unique:people,number',
             'phone' => 'required|string|max:255',
-            'email' => 'required|unique:people,email',
+            'email' => 'required|email',
         ]);
-
         if ($validator->fails()) {
             return back()
                 ->withErrors($validator)
                 ->withInput();
         }
+        //dd($request->all());
+        $product_id = $request->product_id;
 
-        $productids = $request->get('item_id');
+        // Obtener los elementos de la base de datos
+        $products = OnliItem::whereIn('id', $request->product_id)->orderBy('id')->get();
+        $product_prices = $products->pluck('price')->toArray();
+        $product_names = $products->pluck('name')->toArray();
 
-        $comprador_nombre = $request->get('names');
-        $comprador_telefono = $request->get('phone');
-        $comprador_email = $request->get('email');
+        // Obtener la cantidad de productos del arreglo $request->product_quantity
+        $product_quantity = $request->product_quantity;
+
+        // Iterar sobre cada producto y agregar el atributo 'quantity' dinámicamente
+        $x=0;
+        $total=0;
+        $products->each(function ($product) use ($product_quantity, &$x, &$total) {
+            // Verificar si existe una cantidad para el producto en el arreglo
+            if (isset($product_quantity[$x])) {
+                // Agregar el atributo 'quantity' al modelo dinámicamente
+                $product->setAttribute('quantity', $product_quantity[$x]);
+                $total+=$product->price*$product->quantity;
+            } else {
+                // Puedes establecer un valor por defecto si no se encuentra la cantidad
+                $product->setAttribute('quantity', 0);
+            }
+        $x++;
+        });
+
+        $productos = $products;
+        $categories = SaleProductCategory::whereNull('category_id')->get();
+        $subcategories = [];
+        foreach ($categories as $key => $category) {
+            $subcategories[$key] = SaleProductCategory::where('category_id', $category->id)->select('id', 'description')->get()->toArray();
+        }
+
+///////////////////////////////////// aqui abajo esta entacto
+
+        $comprador_nombre = $request->names;
+        $comprador_telefono = $request->phone;
+        $email = $request->email;
 
         $preference_id = null;
         try {
-            DB::beginTransaction();
+
             MercadoPagoConfig::setAccessToken(env('MERCADOPAGO_TOKEN'));
             $client = new PreferenceClient();
             $items = [];
             $products = [];
             $total = 0;
 
-            $person = Person::create([
-                'document_type_id' => $request->get('type'),
-                'short_name' => $comprador_nombre,
-                'full_name' => $comprador_nombre . ' ' . $request->get('app') . ' ' . $request->get('apm'),
-                'number' => $request->get('dni'),
-                'telephone' => $comprador_telefono,
-                'email' => $comprador_email,
-                'is_provider' => false,
-                'is_client' => true,
-                'names' => $comprador_nombre,
-                'father_lastname' => $request->get('app'),
-                'mother_lastname' => $request->get('apm'),
-                'gender' => 'M',
-                'status' => true
-            ]);
-
-            $user = User::firstOrNew(['email' => $person->email]);
-
-            if ($user->exists) {
-                // El usuario ya existe, redirige al usuario a iniciar sesión
-                if (Auth::check()) {
-                } else {
-                    return redirect()->route('login')->with('message', 'Este correo electrónico ya está registrado. Por favor, inicia sesión.');
-                }
-            } else {
-                $user = User::create([
-                    'name' => $person->names,
-                    'email' => $person->email,
-                    'password' => Hash::make($person->number),
-                    'person_id' => $person->id
-                ]);
-                Auth::login($user);
-                //asignar el rol de estudiante....
-                if (!$user->hasRole('Alumno')) {
-                    $role = Role::where('name', 'Alumno')->first();
-                    $user->assignRole($role);
-                }
-            }
-
             $sale = OnliSale::create([
                 'module_name'                   => 'Onlineshop',
-                'person_id'                     => $person->id,
+                'person_id'                     => 1,
                 'clie_full_name'                => $comprador_nombre,
                 'phone'                         => $comprador_telefono,
-                'email'                         => $comprador_email,
+                'email'                         => $email,
                 'response_status'               => 'pendiente',
             ]);
 
-            $productquantity = 1;
-
-            $student = AcaStudent::firstOrCreate(
-                ['person_id' => $person->id],
-                ['student_code' => $person->number, 'status' => true]
-            );
-
-            foreach ($productids as $key => $id) {
-
-                $product = OnliItem::find($id);
-
-                $this->matricular_curso($product, $student);
-
+            foreach ($product_id as $key => $id) {
                 array_push($items, [
                     'id' => $id,
-                    'title' => $product->name,
-                    'quantity'      => floatval($productquantity),
+                    'title' => $product_names[$key],
+                    'quantity'      => floatval($product_quantity[$key]),
                     'currency_id'   => 'PEN',
-                    'unit_price'    => floatval($product->price)
+                    'unit_price'    => floatval($product_prices[$key])
                 ]);
+
+                $product = OnliItem::find($id);
 
                 array_push($products, [
                     'image' => $product->image,
                     'name' => $product->name,
-                    'price' => floatval($product->price),
-                    'quantity'      => floatval($productquantity),
-                    'total' => (floatval($productquantity) * floatval($product->price))
+                    'price' => floatval($product_prices[$key]),
+                    'quantity'      => floatval($product_quantity[$key]),
+                    'total' => (floatval($product_quantity[$key]) * floatval($product_prices[$key]))
                 ]);
 
-                $total = $total + (floatval($productquantity) * floatval($product->price));
+                $total = $total + (floatval($product_quantity[$key]) * floatval($product_prices[$key]));
 
                 OnliSaleDetail::create([
                     'sale_id'       => $sale->id,
                     'item_id'       => $product->item_id,
                     'entitie'       => $product->entitie,
-                    'price'         => $product->price,
-                    'quantity'      => floatval($productquantity),
+                    'price'         => $product->price-$product->discount,
+                    'quantity'      => floatval($product_quantity[$key]),
                     'onli_item_id'  => $id
                 ]);
             }
@@ -715,14 +701,29 @@ class WebPageController extends Controller
             // );
 
             $preference_id =  $preference->id;
-            DB::commit();
         } catch (\MercadoPago\Exceptions\MPApiException $e) {
             // Manejar la excepción
-            DB::rollback();
+
             $response = $e->getApiResponse();
-            //dd($response); // Mostrar la respuesta para obtener más detalles
+            dd($response); // Mostrar la respuesta para obtener más detalles
         }
-        //route('web_gracias_por_comprar_tu_entrada', $sale->id);
+
+        return view('pages/pay', [
+            'preference' => $preference_id,
+            'products' => $productos,
+            'total' => $total,
+            'sale_id' => $sale->id,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'total' => $total,
+            'names' => $comprador_nombre,
+            'product_id' => $product_id,
+            'product_quantity' => $product_quantity,
+            'phone' => $request->phone,
+            'product_prices' => $product_prices,
+            'product_names' => $product_names,
+        ]);
+        //return view('pages.pay', compact('categories', 'subcategories', 'products', 'total', 'names', 'product_id', 'product_quantity', 'phone', 'product_prices', 'product_names'));
 
     }
 

@@ -90,6 +90,8 @@
                                 </div>
                                 <label class="mb-10" for="names">Tu nombre *</label>
                                 <input class="mb-20" id="names" name="names" type="text">
+                                <label class="mb-10" for="phone">Email *</label>
+                                <input class="mb-20" name="email" id="email" type="email">
                                 <label class="mb-10" for="phone">Teléfono *</label>
                                 <input class="mb-20" name="phone" id="phone" type="text">
 

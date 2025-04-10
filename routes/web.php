@@ -47,7 +47,8 @@ Route::get('/categorias', [WebPageController::class, 'categories'])->name('web_c
 Route::get('/productos/{category_id?}', [WebPageController::class, 'products_category'])->name('web_products_with_category');
 Route::get('/producto-descripcion/{id}', [WebPageController::class, 'prodescription'])->name('web_pro_description');
 Route::get('/carrito', [WebPageController::class, 'cart'])->name('web_cart');
-Route::post('/pagar', [WebPageController::class, 'pay'])->name('web_pay');
+Route::post('/pagar', [WebPageController::class, 'pagar'])->name('web_pay');
+Route::put('/process_payment/{id}', [WebController::class, 'processPayment'])->name('web_process_payment');
 
 
 // E-MAIL //
