@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Banner area start here -->
-    <section class="banner-two">
+    {{-- <section class="banner-two">
         <div class="swiper banner-two__slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -40,7 +40,8 @@
             <button class="arry-next active banner-two__arry-next"><i
                     class="fa-light fa-chevron-right"></i></button>
         </div>
-    </section>
+    </section> --}}
+    <x-slider />
     <!-- Banner area end here -->
 
     <!-- Product area start here -->
