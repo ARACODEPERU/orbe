@@ -2555,13 +2555,13 @@ input {
   width: 100%;
   z-index: 9;
   position: absolute;
-  top: 114px;
+  top: 0;
   left: 0;
   background-color: #191919;
 }
 @media (max-width: 1199px) {
   .header-section {
-    top: 100px;
+    top: 0px;
   }
 }
 
