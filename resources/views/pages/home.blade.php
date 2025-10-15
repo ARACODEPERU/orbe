@@ -47,7 +47,7 @@
     <!-- Product area start here -->
     <x-products :products="$products" />
     <!-- Product area end here -->
-    
+
     <!-- Category area start here -->
     {{-- <x-category /> --}}
     <!-- Category area end here -->
@@ -62,7 +62,7 @@
                     <div class="view__left-item">
                         <div class="image">
                             {{-- <img src="themes/webpage/assets/images/view/view-image1.jpg" alt="image"> --}}
-                            <img src="{{ asset('storage/'.$servicios[0]->content)  }}" alt="image">
+                            <img src="{{ asset('storage/' . $servicios[0]->content) }}" alt="image">
                         </div>
                         <div class="view__left-content sub-bg">
                             <h2>
@@ -81,41 +81,53 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="view__item mb-25 wow fadeInDown" data-wow-delay=".2s">
-                        <div class="view__content">
-                            <h3>
-                                <a class="primary-hover" href="">
-                                    {{ $servicios[5]->content }}
-                                </a>
-                            </h3>
-                            <p>
-                                {{ $servicios[6]->content }}
-                            </p>
-                            <a class="btn-two" href="{{ $servicios[7]->content }}">
-                                <span>Más Información</span>
-                            </a>
-                        </div>
-                        <div class="view__image">
-                            {{-- <img src="themes/webpage/assets/images/view/view-image2.jpg" alt="image"> --}}
-                            <img src="{{ asset('storage/'.$servicios[4]->content)  }}" alt="image">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="view__content">
+                                    <h3>
+                                        <a class="primary-hover" href="">
+                                            {{ $servicios[5]->content }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        {{ $servicios[6]->content }}
+                                    </p>
+                                    <a class="btn-two" href="{{ $servicios[7]->content }}">
+                                        <span>Más Información</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="view__image">
+                                    {{-- <img src="themes/webpage/assets/images/view/view-image2.jpg" alt="image"> --}}
+                                    <img src="{{ asset('storage/' . $servicios[4]->content) }}" alt="image">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="view__item wow fadeInUp" data-wow-delay=".3s">
-                        <div class="view__content">
-                            <h3>
-                                <a class="primary-hover" href="">
-                                    {{ $servicios[9]->content }}
-                                </a>
-                            </h3>
-                            <p>
-                                {{ $servicios[10]->content }}
-                            </p>
-                            <a class="btn-two" href="{{ $servicios[11]->content }}">
-                                <span>Más Información</span>
-                            </a>
-                        </div>
-                        <div class="view__image">
-                            {{-- <img src="themes/webpage/assets/images/view/view-image3.jpg" alt="image"> --}}
-                            <img src="{{ asset('storage/'.$servicios[8]->content)  }}" alt="image">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="view__content">
+                                    <h3>
+                                        <a class="primary-hover" href="">
+                                            {{ $servicios[9]->content }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        {{ $servicios[10]->content }}
+                                    </p>
+                                    <a class="btn-two" href="{{ $servicios[11]->content }}">
+                                        <span>Más Información</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="view__image">
+                                    {{-- <img src="themes/webpage/assets/images/view/view-image3.jpg" alt="image"> --}}
+                                    <img src="{{ asset('storage/' . $servicios[8]->content) }}" alt="image">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -161,7 +173,7 @@
     </section> --}}
     <!-- Discount area end here -->
     <br><br>
-    
+
     <!-- Get now area start here -->
     {{-- <section class="get-now-area pt-130 pb-130">
         <div class="container">
@@ -286,24 +298,26 @@
     <section class="gallery-area">
         <div class="swiper gallery__slider">
             <div class="swiper-wrapper">
-                @foreach ($perfomance as $key => $item )
-                <div class="swiper-slide">
-                    <div class="gallery__item">
-                        <div class="gallery__image image">
-                            <img src="{{ asset('storage/'.$item->item->items[3]->content)  }}" alt="{{ $item->item->items[0]->content }}">
-                            {{-- <img src="themes/webpage/assets/images/gallery/gallery-image1.jpg" alt="image"> --}}
-                        </div>
-                        <div class="gallery__content">
-                            <h3 class="mb-10">
-                                <a href="{{ $item->item->items[2]->content }}" target="_blank">{{ $item->item->items[0]->content }}</a>
-                            </h3>
-                            <p>{{ $item->item->items[1]->content }}</p>
-                            <a href="{{ $item->item->items[2]->content }}" target="_blank" class="btn-two mt-25">
-                                <span>Ver Ahora</span>
-                            </a>
+                @foreach ($perfomance as $key => $item)
+                    <div class="swiper-slide">
+                        <div class="gallery__item">
+                            <div class="gallery__image image">
+                                <img src="{{ asset('storage/' . $item->item->items[3]->content) }}"
+                                    alt="{{ $item->item->items[0]->content }}">
+                                {{-- <img src="themes/webpage/assets/images/gallery/gallery-image1.jpg" alt="image"> --}}
+                            </div>
+                            <div class="gallery__content">
+                                <h3 class="mb-10">
+                                    <a href="{{ $item->item->items[2]->content }}"
+                                        target="_blank">{{ $item->item->items[0]->content }}</a>
+                                </h3>
+                                <p>{{ $item->item->items[1]->content }}</p>
+                                <a href="{{ $item->item->items[2]->content }}" target="_blank" class="btn-two mt-25">
+                                    <span>Ver Ahora</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -311,7 +325,7 @@
     <!-- Perfomance area end here -->
 
     <br>
-    
+
     <!-- Footer area start here -->
     <x-footer />
     <!-- Footer area end here -->
