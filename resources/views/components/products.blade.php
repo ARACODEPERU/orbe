@@ -1,4 +1,4 @@
-<section class="product-area pt-20 pb-30 mt-100">
+<section class="product-area pt-10 pb-30 mt-50">
     <div class="container">
         <div
             class="product__wrp pb-30 mb-65 bor-bottom d-flex flex-wrap align-items-center justify-content-xl-between justify-content-center">
