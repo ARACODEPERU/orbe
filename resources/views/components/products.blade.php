@@ -42,18 +42,11 @@
                             </a>
                         </h4>
                         <del>S/ {{ $product->price+($product->price*0.2) }}</del><span class="primary-color ml-10">S/ {{ $product->price }}</span>
-                        {{-- <div class="star mt-20">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div> --}}
                     </div>
                     <br>
                     <a class="product__cart d-block bor-top" href="#0" onclick="agregarAlCarrito({ id: {{ $product->id }}, nombre: '{{ $product->name }}', precio: {{ $product->price }}, quantity: 1 })"><i
                             class="fa-regular fa-cart-shopping primary-color me-1"></i>
-                        <span>Agregar al Carrito</span>
+                        <span>Comprar en linea</span>
                     </a>
                 </div>
             </div>

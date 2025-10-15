@@ -32,7 +32,7 @@
             </div>
         </div>
     </div> --}}
-    <header class="header-section" style="margin-top: 0;">
+    <header class="header-section">
         <div class="container-xxl">
             <div class="header-wrapper">
                 <div class="header-bar d-lg-none">

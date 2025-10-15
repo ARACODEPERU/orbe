@@ -11,9 +11,9 @@ class Header extends Component
     /**
      * Create a new component instance.
      */
+
     public function __construct()
     {
-        //
     }
 
     /**
@@ -21,6 +21,6 @@ class Header extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.header');
+
     }
 }
