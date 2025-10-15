@@ -9,7 +9,7 @@
                             <h4 class="footer-title">Navegar :</h4>
                             <ul>
                                 <li><a href="{{ route('index_main') }}"><span></span>Home</a></li>
-                                <li><a href=""><span></span>Nosotros</a></li>
+                                <li><a href="{{ route('web_about') }}"><span></span>Nosotros</a></li>
                                 <li><a href="{{ route('web_contact') }}"><span></span>Contactanos</a></li>
                             </ul>
                         </div>
@@ -52,9 +52,9 @@
             </div>
             <div class="footer__copy-text pt-50 pb-50">
                 <a href="{{ route('index_main') }}" class="logo d-block">
-                    <img src="{{ asset('themes/webpage/assets/images/logo/logo.svg') }}" alt="logo">
+                    <img src="{{ asset('themes/webpage/assets/images/Logo.png') }}" alt="logo">
                 </a>
-                <p>&copy; Copyright 2025 <a href="" class="primary-hover">Orbe</a> Todos los derechos reservados | Desarrollado por <a href="">Aracode Smarth Solutión</a></p>
+                <p>&copy; Copyright 2025 <a href="" class="primary-hover">Orbe Music</a> Todos los derechos reservados | Desarrollado por <a href="">Aracode Smarth Solutión</a></p>
             </div>
         </div>
     </footer>

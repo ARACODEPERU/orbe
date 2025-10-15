@@ -1584,13 +1584,13 @@ input {
   color: var(--white);
   font-size: 14px;
   font-weight: 600;
-  padding: 12px 30px;
+  padding: 6px 30px;
   transition: var(--transition);
   text-transform: capitalize;
   position: relative;
   overflow: hidden;
   text-align: center;
-  border-radius: 100px;
+  border-radius: 50px;
 }
 .btn-one:hover, .btn-one-light:hover, .btn-two:hover {
   color: var(--primary-color);
