@@ -46,7 +46,7 @@
             padding: 12px;
             cursor: pointer;
             font-size: 24px;
-            z-index: 10;
+            z-index: 5;
             /* Asegura que los botones estén por encima del slider */
         }
 
