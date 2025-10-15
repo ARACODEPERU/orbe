@@ -55,7 +55,7 @@
 
     <!-- Services area start here -->
     <section class="view-area">
-        <div class="bg-image view__bg" data-background="themes/webpage/assets/images/bg/view-bg.jpg"></div>
+        <div class="bg-image view__bg" data-background="{{ asset('themes/webpage/assets/images/bg/view-bg.jpg') }}"></div>
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay=".1s">
