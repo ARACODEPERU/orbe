@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orbe Corporation</title>
     <!-- Favicon img -->
-    <link rel="shortcut icon" href="{{ asset('themes/webpage/assets/Isotipo.png') }}">
+    <link rel="shortcut icon" href="{{ asset('themes/webpage/assets/images/Isotipo.png') }}">
     <!-- Bootstarp min css -->
     <link rel="stylesheet" href="{{ asset('themes/webpage/assets/css/bootstrap.min.css') }}">
     <!-- All min css -->
