@@ -42,7 +42,7 @@
                 </div>
                 
                 <a href="{{ route('index_main') }}" class="main__logo">
-                    <img src="{{ asset('themes/webpage/assets/images/logo/logo.svg') }}" alt="logo__image">
+                    <img src="{{ asset('themes/webpage/assets/images/Logo.png') }}" alt="logo__image">
                 </a>
                 <ul class="main-menu">
                     <li>
