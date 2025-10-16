@@ -3,9 +3,9 @@
         <ul class="pagination">
             {{-- Previous Page Link --}}
             @if ($products->onFirstPage())
-        <a href="#" class="pagi-btn disabled">Anterior</a>
+        <a href="#" class="pagi-btn disabled"><</a>
     @else
-        <a href="{{ $products->previousPageUrl() }}" class="pagi-btn">Anterior</a>
+        <a href="{{ $products->previousPageUrl() }}" class="pagi-btn"><</a>
     @endif
 
             {{-- Pagination Elements --}}
@@ -29,9 +29,9 @@
 
             {{-- Next Page Link --}}
             @if ($products->hasMorePages())
-            <a href="{{ $products->nextPageUrl() }}" class="pagi-btn">Siguiente</a>
+            <a href="{{ $products->nextPageUrl() }}" class="pagi-btn">></a>
         @else
-            <a href="#" class="pagi-btn disabled">Siguiente</a>
+            <a href="#" class="pagi-btn disabled">></a>
         @endif
         </ul>
     </nav>

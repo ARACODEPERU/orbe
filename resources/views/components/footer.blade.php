@@ -1,6 +1,5 @@
 <div>
-    
-    <footer class="footer-area bg-image" data-background="themes/webpage/assets/images/footer/footer-bg.jpg">
+    <footer class="footer-area bg-image" data-background="{{ asset('themes/webpage/assets/images/footer/footer-bg.jpg') }}">
         <div class="container">
             <div class="footer__wrp pt-65 pb-65 bor-top bor-bottom">
                 <div class="row g-4">
