@@ -19,9 +19,9 @@
                                 <a href="{{ $item->item->items[2]->content }}" target="_blank" class="btn-two mt-25"
                                     <span>Ver Ahora</span>
                                 </a>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn-two mt-25" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
-                                    Launch demo modal
+                                    <span>Ver Ahora</span>
                                 </button>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
         </div>
     </section>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
