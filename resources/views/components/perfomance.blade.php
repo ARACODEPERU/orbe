@@ -1,0 +1,50 @@
+<div>
+    <section class="gallery-area">
+        <div class="swiper gallery__slider">
+            <div class="swiper-wrapper">
+                @foreach ($perfomance as $key => $item)
+                    <div class="swiper-slide">
+                        <div class="gallery__item">
+                            <div class="gallery__image image">
+                                <img src="{{ asset('storage/' . $item->item->items[3]->content) }}"
+                                    alt="{{ $item->item->items[0]->content }}">
+                                {{-- <img src="themes/webpage/assets/images/gallery/gallery-image1.jpg" alt="image"> --}}
+                            </div>
+                            <div class="gallery__content">
+                                <h3 class="mb-10">
+                                    <a href="{{ $item->item->items[2]->content }}"
+                                        target="_blank">{{ $item->item->items[0]->content }}</a>
+                                </h3>
+                                <p>{{ $item->item->items[1]->content }}</p>
+                                <a href="{{ $item->item->items[2]->content }}" target="_blank" class="btn-two mt-25"
+                                    <span>Ver Ahora</span>
+                                </a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Launch demo modal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

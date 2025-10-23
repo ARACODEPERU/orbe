@@ -295,33 +295,7 @@
     <!-- Brand area end here -->
 
     <!-- Perfomance area start here -->
-    <section class="gallery-area">
-        <div class="swiper gallery__slider">
-            <div class="swiper-wrapper">
-                @foreach ($perfomance as $key => $item)
-                    <div class="swiper-slide">
-                        <div class="gallery__item">
-                            <div class="gallery__image image">
-                                <img src="{{ asset('storage/' . $item->item->items[3]->content) }}"
-                                    alt="{{ $item->item->items[0]->content }}">
-                                {{-- <img src="themes/webpage/assets/images/gallery/gallery-image1.jpg" alt="image"> --}}
-                            </div>
-                            <div class="gallery__content">
-                                <h3 class="mb-10">
-                                    <a href="{{ $item->item->items[2]->content }}"
-                                        target="_blank">{{ $item->item->items[0]->content }}</a>
-                                </h3>
-                                <p>{{ $item->item->items[1]->content }}</p>
-                                <a href="{{ $item->item->items[2]->content }}" target="_blank" class="btn-two mt-25">
-                                    <span>Ver Ahora</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+    <x-perfomance />
     <!-- Perfomance area end here -->
 
     <br>
