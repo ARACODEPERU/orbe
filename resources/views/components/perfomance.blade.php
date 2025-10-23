@@ -16,9 +16,6 @@
                                         target="_blank">{{ $item->item->items[0]->content }}</a>
                                 </h3>
                                 <p>{{ $item->item->items[1]->content }}</p>
-                                <a href="{{ $item->item->items[2]->content }}" target="_blank" class="btn-two mt-25"
-                                    <span>Ver Ahora</span>
-                                </a>
                                 <button type="button" class="btn-two mt-25" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
                                     <span>Ver Ahora</span>
@@ -31,7 +28,7 @@
         </div>
     </section>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered" style="background: #000;">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -42,7 +39,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
