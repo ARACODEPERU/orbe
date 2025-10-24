@@ -11,7 +11,7 @@
                     @foreach ($brands as $brand)
                         <div class="swiper-slide">
                             <div class="brand__item bor radius-10 text-center p-4" title="{{ $brand->description }}">
-                                <img src="{{ asset('storage/' . $brand->image) }}" alt="{{ $brand->description }}" title="{{ $brand->description }}" style="max-height: 3rem">
+                                <img src="{{ asset('storage/' . $brand->image) }}" alt="{{ $brand->description }}" title="{{ $brand->description }}" style="max-height: 8rem">
                             </div>
                         </div>
                     @endforeach
