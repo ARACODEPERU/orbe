@@ -8,11 +8,16 @@
             </div>
             <div class="swiper brand__slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="brand__item bor radius-10 text-center p-4">
-                            <img src="themes/webpage/assets/images/brand/brand1.png" alt="icon">
+                    @foreach ($brands as $brand)
+                        <div class="swiper-slide">
+                            <div class="brand__item bor radius-10 text-center p-4">
+                                <img src="{{ asset($brand->image) }}" alt="foreach" title="{{ $brand->description }}">
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
+
+
+
                     <div class="swiper-slide">
                         <div class="brand__item bor radius-10 text-center p-4">
                             <img src="themes/webpage/assets/images/brand/brand2.png" alt="icon">
