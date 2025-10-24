@@ -10,7 +10,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($brands as $brand)
                         <div class="swiper-slide">
-                            <div class="brand__item bor radius-10 text-center p-4">
+                            <div class="brand__item bor radius-10 text-center p-4" title="{{ $brand->description }}">
                                 <img src="{{ asset($brand->image) }}" alt="foreach" title="{{ $brand->description }}">
                             </div>
                         </div>
