@@ -17,7 +17,7 @@
                                 </h3>
                                 <p>{{ $item->item->items[1]->content }}</p>
                                 <button type="button" class="btn-two mt-25" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
+                                    data-bs-target="#exampleModal{{ $key }}">
                                     <span>Ver Ahora</span>
                                 </button>
                             </div>
@@ -27,11 +27,12 @@
             </div>
         </div>
     </section>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    @foreach ($perfomance as $key => $item)
+        <div class="modal fade" id="exampleModal{{ $key }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="background: #000;">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $item->item->items[0]->content }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -43,4 +44,5 @@
             </div>
         </div>
     </div>
+    @endforeach
 </div>
